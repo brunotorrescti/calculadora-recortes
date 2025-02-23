@@ -52,3 +52,61 @@
             font-size: 16px;
             font-weight: bold;
             margin-top: 10px;
+        }
+        button:hover {
+            background: #c2185b;
+        }
+        .result {
+            margin-top: 15px;
+            font-size: 14px;
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Calculadora de Recortes</h2>
+        <label for="originalWidth">Largura da Folha Original (cm):</label>
+        <input type="number" id="originalWidth" placeholder="Ex: 100">
+
+        <label for="originalHeight">Altura da Folha Original (cm):</label>
+        <input type="number" id="originalHeight" placeholder="Ex: 50">
+
+        <label for="cutWidth">Largura da Folha a ser cortada (cm):</label>
+        <input type="number" id="cutWidth" placeholder="Ex: 10">
+
+        <label for="cutHeight">Altura da Folha a ser cortada (cm):</label>
+        <input type="number" id="cutHeight" placeholder="Ex: 5">
+
+        <button onclick="calcularRecortes()">Calcular</button>
+
+        <div class="result" id="result"></div>
+    </div>
+
+    <script>
+        function calcularRecortes() {
+            const originalWidth = parseFloat(document.getElementById('originalWidth').value);
+            const originalHeight = parseFloat(document.getElementById('originalHeight').value);
+            const cutWidth = parseFloat(document.getElementById('cutWidth').value);
+            const cutHeight = parseFloat(document.getElementById('cutHeight').value);
+
+            if (isNaN(originalWidth) || isNaN(originalHeight) || isNaN(cutWidth) || isNaN(cutHeight) ||
+                originalWidth <= 0 || originalHeight <= 0 || cutWidth <= 0 || cutHeight <= 0) {
+                document.getElementById('result').innerText = 'Por favor, insira valores válidos.';
+                return;
+            }
+
+            const numHorizontal = Math.floor(originalWidth / cutWidth);
+            const numVertical = Math.floor(originalHeight / cutHeight);
+            const total = numHorizontal * numVertical;
+
+            document.getElementById('result').innerHTML = `
+                <p>Recortes na horizontal: ${numHorizontal}</p>
+                <p>Recortes na vertical: ${numVertical}</p>
+                <p>Total de recortes possíveis: ${total}</p>
+            `;
+        }
+    </script>
+</body>
+</html>
