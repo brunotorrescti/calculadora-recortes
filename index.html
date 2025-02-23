@@ -91,25 +91,31 @@
         <input type="number" id="cutHeight" placeholder="Ex: 5">
 
         <button onclick="calcularRecortes()">Calcular</button>
+        <button onclick="limparCampos()" style="background: #999; margin-top: 10px;">Limpar Campos</button>
 
         <div class="result" id="result"></div>
     </div>
 
     <script>
         function calcularRecortes() {
-            const originalWidth = parseFloat(document.getElementById('originalWidth').value);
-            const originalHeight = parseFloat(document.getElementById('originalHeight').value);
-            const cutWidth = parseFloat(document.getElementById('cutWidth').value);
-            const cutHeight = parseFloat(document.getElementById('cutHeight').value);
+            const originalWidth = document.getElementById('originalWidth');
+            const originalHeight = document.getElementById('originalHeight');
+            const cutWidth = document.getElementById('cutWidth');
+            const cutHeight = document.getElementById('cutHeight');
 
-            if (isNaN(originalWidth) || isNaN(originalHeight) || isNaN(cutWidth) || isNaN(cutHeight) ||
-                originalWidth <= 0 || originalHeight <= 0 || cutWidth <= 0 || cutHeight <= 0) {
+            const widthValue = parseFloat(originalWidth.value);
+            const heightValue = parseFloat(originalHeight.value);
+            const cutWidthValue = parseFloat(cutWidth.value);
+            const cutHeightValue = parseFloat(cutHeight.value);
+
+            if (isNaN(widthValue) || isNaN(heightValue) || isNaN(cutWidthValue) || isNaN(cutHeightValue) ||
+                widthValue <= 0 || heightValue <= 0 || cutWidthValue <= 0 || cutHeightValue <= 0) {
                 document.getElementById('result').innerText = 'Por favor, insira valores válidos.';
                 return;
             }
 
-            const numHorizontal = Math.floor(originalWidth / cutWidth);
-            const numVertical = Math.floor(originalHeight / cutHeight);
+            const numHorizontal = Math.floor(widthValue / cutWidthValue);
+            const numVertical = Math.floor(heightValue / cutHeightValue);
             const total = numHorizontal * numVertical;
 
             document.getElementById('result').innerHTML = `
@@ -117,6 +123,13 @@
                 <p>Recortes na vertical: ${numVertical}</p>
                 <p>Total de recortes possíveis: ${total}</p>
             `;
+        }
+
+        function limparCampos() {
+            document.getElementById('originalWidth').value = '';
+            document.getElementById('originalHeight').value = '';
+            document.getElementById('cutWidth').value = '';
+            document.getElementById('cutHeight').value = '';
         }
     </script>
 </body>
