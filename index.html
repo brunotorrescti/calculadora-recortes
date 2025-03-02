@@ -114,6 +114,59 @@
             font-weight: bold;
             color: #333;
         }
+
+         /* Ajustes para telas menores (celulares) */
+@media (max-width: 600px) {
+    body {
+        padding: 10px; /* Reduz o padding para melhor encaixe */
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .container {
+        width: 100%; /* Ocupa toda a largura */
+        max-width: 90%;
+        padding: 15px;
+    }
+
+    .cta {
+        width: 100%;
+        max-width: 100%;
+        padding: 15px;
+    }
+
+    .cta img {
+        max-width: 100%;
+        height: auto;
+        object-fit: contain; /* Evita cortes na imagem */
+    }
+
+    button {
+        font-size: 14px; /* Reduz o tamanho do botão para telas menores */
+        padding: 10px;
+    }
+}
+
+/* Ajustes para tablets */
+@media (min-width: 601px) and (max-width: 1024px) {
+    .container {
+        width: 80%;
+        max-width: 500px;
+    }
+
+    .cta {
+        width: 80%;
+        max-width: 500px;
+    }
+
+    .cta img {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
     </style>
      
 </head>
