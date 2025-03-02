@@ -42,9 +42,10 @@
 }
 
 .cta img {
-    width: 100%; /* Garante que a imagem se ajuste ao container */
-    max-height: 250px; /* Define uma altura máxima */
-    object-fit: cover; /* Ajusta a imagem sem distorcer */
+    width: 100%;
+    height: auto; /* Mantém a proporção original da imagem */
+    max-height: 300px; /* Ajusta a altura máxima para evitar cortes */
+    object-fit: contain; /* Garante que a imagem se ajuste sem cortar */
     border-radius: 10px;
     margin-bottom: 15px;
 }
