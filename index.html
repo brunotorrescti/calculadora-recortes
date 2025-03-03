@@ -1,75 +1,82 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-
-
-     
-     <meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora de Recortes</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: 'Poppins', sans-serif;
         }
-       body {
-    display: flex;
-    flex-direction: column; /* Força a calculadora e o banner a ficarem um abaixo do outro */
-    align-items: center;
-    height: auto; /* Evita corte de elementos */
-}
-
-.container {
-    max-width: 400px;
-    width: 100%;
-    margin-bottom: 20px; /* Espaço entre a calculadora e o banner */
-}
-
-.cta {
-    width: 100%;
-    max-width: 400px;
-    text-align: center;
-    background: linear-gradient(to right, #ff7eb3, #ff758c);
-    padding: 20px;
-    border-radius: 10px;
-    color: white;
-    margin-top: 20px; /* Adiciona espaço entre a calculadora e o banner */
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-.cta img {
-    width: 100%;
-    height: auto; /* Mantém a proporção original da imagem */
-    max-height: 300px; /* Ajusta a altura máxima para evitar cortes */
-    object-fit: contain; /* Garante que a imagem se ajuste sem cortar */
-    border-radius: 10px;
-    margin-bottom: 15px;
-}
-
-         .cta a {
-    background: white;
-    color: #ff3b7f;
-    padding: 10px 20px;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 5px;
-    display: inline-block;
-    transition: 0.3s ease;
-}
-
-.cta a:hover {
-    background: #ffe6ec;
-}
-
-.cta a:visited {
-    color: #ff3b7f; /* Mantém a cor original após o clique */
-}
-
-
+        body {
+            background: linear-gradient(to right, #ff9a9e, #fad0c4);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            padding: 20px;
+        }
+        .wrapper {
+            display: flex;
+            gap: 20px;
+            max-width: 900px;
+            width: 100%;
+            align-items: flex-start;
+        }
+        .container {
+            background: #fff;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+            flex: 1;
+        }
+        .cta {
+            background: linear-gradient(to right, #ff7eb3, #ff758c);
+            padding: 15px;
+            text-align: center;
+            border-radius: 10px;
+            color: white;
+            max-width: 250px;
+            width: 100%;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            flex-shrink: 0;
+        }
+        .cta img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+        .cta h3 {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+        .cta p {
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        .cta a {
+            background: white;
+            color: #ff3b7f;
+            padding: 8px 12px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            display: inline-block;
+            transition: 0.3s ease;
+            font-size: 14px;
+        }
+        .cta a:hover {
+            background: #ffe6ec;
+        }
         h2 {
             font-size: 22px;
             font-weight: 600;
@@ -114,106 +121,48 @@
             font-weight: bold;
             color: #333;
         }
-
-         /* Ajustes para telas menores (celulares) */
-@media (max-width: 600px) {
-    body {
-        padding: 10px; /* Reduz o padding para melhor encaixe */
-        height: auto;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .container {
-        width: 100%; /* Ocupa toda a largura */
-        max-width: 90%;
-        padding: 15px;
-    }
-
-    .cta {
-        width: 100%;
-        max-width: 100%;
-        padding: 15px;
-    }
-
-    .cta img {
-        max-width: 100%;
-        height: auto;
-        object-fit: contain; /* Evita cortes na imagem */
-    }
-
-    button {
-        font-size: 14px; /* Reduz o tamanho do botão para telas menores */
-        padding: 10px;
-    }
-}
-
-/* Ajustes para tablets */
-@media (min-width: 601px) and (max-width: 1024px) {
-    .container {
-        width: 80%;
-        max-width: 500px;
-    }
-
-    .cta {
-        width: 80%;
-        max-width: 500px;
-    }
-
-    .cta img {
-        max-width: 100%;
-        height: auto;
-    }
-}
-
+        @media (max-width: 768px) {
+            .wrapper {
+                flex-direction: column;
+                align-items: center;
+            }
+            .cta {
+                max-width: 100%;
+            }
+        }
     </style>
-     
 </head>
 <body>
 
+    <div class="wrapper">
+        <div class="container">
+            <h2>Calculadora de Recortes</h2>
+            <label for="originalWidth">Largura da Folha Original (cm):</label>
+            <input type="number" id="originalWidth" placeholder="Ex: 100">
 
-     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9593650304049425"
-     crossorigin="anonymous"></script>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9593650304049425"
-     crossorigin="anonymous"></script>
-<!-- Anuncio_Calculadora_Recortes -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-9593650304049425"
-     data-ad-slot="7919499412"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+            <label for="originalHeight">Altura da Folha Original (cm):</label>
+            <input type="number" id="originalHeight" placeholder="Ex: 50">
 
+            <label for="cutWidth">Largura da Folha a ser cortada (cm):</label>
+            <input type="number" id="cutWidth" placeholder="Ex: 10">
 
-    <div class="container">
-        <h2>Calculadora de Recortes</h2>
-        <label for="originalWidth">Largura da Folha Original (cm):</label>
-        <input type="number" id="originalWidth" placeholder="Ex: 100">
+            <label for="cutHeight">Altura da Folha a ser cortada (cm):</label>
+            <input type="number" id="cutHeight" placeholder="Ex: 5">
 
-        <label for="originalHeight">Altura da Folha Original (cm):</label>
-        <input type="number" id="originalHeight" placeholder="Ex: 50">
+            <button onclick="calcularRecortes()">Calcular</button>
+            <button onclick="limparCampos()" style="background: #999; margin-top: 10px;">Limpar Campos</button>
 
-        <label for="cutWidth">Largura da Folha a ser cortada (cm):</label>
-        <input type="number" id="cutWidth" placeholder="Ex: 10">
+            <div class="result" id="result"></div>
+        </div>
 
-        <label for="cutHeight">Altura da Folha a ser cortada (cm):</label>
-        <input type="number" id="cutHeight" placeholder="Ex: 5">
-
-        <button onclick="calcularRecortes()">Calcular</button>
-        <button onclick="limparCampos()" style="background: #999; margin-top: 10px;">Limpar Campos</button>
-
-        <div class="result" id="result"></div>
+        <div class="cta">
+            <img src="banner.png" alt="Curso de Ilustração Infantil">
+            <h3>Aprenda a Criar Ilustrações!</h3>
+            <p>Conheça nosso curso de Ilustração Infantil e transforme sua criatividade em um negócio de sucesso!</p>
+            <a href="https://kiwify.app/gpFMsBa?afid=WfWMVCwX" target="_blank">Quero Aprender!</a>
+        </div>
     </div>
-<div class="cta">
-    <img src="/banner.png" alt="Curso de Ilustração Infantil">
-    <h3>Aprenda a Criar Ilustrações Incríveis!</h3>
-    <p>Conheça nosso curso de Ilustração Infantil e transforme sua criatividade em um negócio de sucesso!</p>
-    <a href="https://kiwify.app/gpFMsBa?afid=WfWMVCwX" target="_blank">Quero Aprender Agora!</a>
-</div>
+
     <script>
         function calcularRecortes() {
             const originalWidth = document.getElementById('originalWidth');
@@ -248,8 +197,9 @@
             document.getElementById('originalHeight').value = '';
             document.getElementById('cutWidth').value = '';
             document.getElementById('cutHeight').value = '';
-            document.getElementById('result').innerHTML = ''; // Limpa o resultado também
+            document.getElementById('result').innerHTML = '';
         }
     </script>
+
 </body>
 </html>
