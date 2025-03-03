@@ -15,31 +15,21 @@
         body {
             background: linear-gradient(to right, #ff9a9e, #fad0c4);
             display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            height: 100vh;
-            padding: 20px;
             flex-direction: column;
-        }
-        .container-wrapper {
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            width: 100%;
-            max-width: 1200px;
-            margin: auto;
+            align-items: center;
+            padding: 20px;
         }
         .container {
             background: #fff;
             padding: 25px;
             border-radius: 15px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            max-width: 600px;
+            max-width: 400px;
             width: 100%;
             text-align: center;
         }
         h2 {
-            font-size: 24px;
+            font-size: 22px;
             font-weight: 600;
             color: #ff3b7f;
             margin-bottom: 20px;
@@ -82,74 +72,131 @@
             font-weight: bold;
             color: #333;
         }
-        .cta {
+        /* Estilos para a nova seção do passo a passo */
+        .tutorial {
             background: #fff;
-            padding: 15px;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            width: 100%;
+            text-align: left;
+        }
+        .tutorial h3 {
+            color: #ff3b7f;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        .tutorial p {
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        /* CTA do curso */
+        .cta {
+            background: linear-gradient(to right, #ff7eb3, #ff758c);
+            padding: 20px;
             text-align: center;
             border-radius: 10px;
-            margin-left: 20px;
+            color: white;
+            margin-top: 20px;
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-            max-width: 250px;
+            width: 100%;
         }
         .cta img {
             max-width: 100%;
             height: auto;
             border-radius: 10px;
+            margin-bottom: 15px;
         }
         .cta h3 {
-            font-size: 18px;
+            font-size: 22px;
             font-weight: bold;
-            margin-top: 10px;
-            color: #ff3b7f;
+            margin-bottom: 10px;
+        }
+        .cta p {
+            font-size: 18px;
+            margin-bottom: 15px;
         }
         .cta a {
-            background: #ff3b7f;
-            color: white;
-            padding: 10px 15px;
+            background: white;
+            color: #ff3b7f;
+            padding: 10px 20px;
             text-decoration: none;
             font-weight: bold;
             border-radius: 5px;
             display: inline-block;
-            margin-top: 10px;
+            transition: 0.3s ease;
         }
         .cta a:hover {
-            background: #e91e63;
+            background: #ffe6ec;
         }
     </style>
 </head>
 <body>
-    <div class="container-wrapper">
-        <div class="container">
-            <h2>Calculadora de Recortes</h2>
-            <label for="originalWidth">Largura da Folha Original (cm):</label>
-            <input type="number" id="originalWidth" placeholder="Ex: 100">
-            <label for="originalHeight">Altura da Folha Original (cm):</label>
-            <input type="number" id="originalHeight" placeholder="Ex: 50">
-            <label for="cutWidth">Largura da Folha a ser cortada (cm):</label>
-            <input type="number" id="cutWidth" placeholder="Ex: 10">
-            <label for="cutHeight">Altura da Folha a ser cortada (cm):</label>
-            <input type="number" id="cutHeight" placeholder="Ex: 5">
-            <button onclick="calcularRecortes()">Calcular</button>
-            <button onclick="limparCampos()" style="background: #999; margin-top: 10px;">Limpar Campos</button>
-            <div class="result" id="result"></div>
-        </div>
-        <div class="cta">
-            <img src="banner.png" alt="Curso de Ilustração Infantil">
-            <h3>Aprenda a Criar Ilustrações Incríveis!</h3>
-            <a href="https://kiwify.app/gpFMsBa?afid=WfWMVCwX" target="_blank">Quero Aprender Agora!</a>
-        </div>
+
+    <div class="container">
+        <h2>Calculadora de Recortes</h2>
+        <label for="originalWidth">Largura da Folha Original (cm):</label>
+        <input type="number" id="originalWidth" placeholder="Ex: 100">
+
+        <label for="originalHeight">Altura da Folha Original (cm):</label>
+        <input type="number" id="originalHeight" placeholder="Ex: 50">
+
+        <label for="cutWidth">Largura da Folha a ser cortada (cm):</label>
+        <input type="number" id="cutWidth" placeholder="Ex: 10">
+
+        <label for="cutHeight">Altura da Folha a ser cortada (cm):</label>
+        <input type="number" id="cutHeight" placeholder="Ex: 5">
+
+        <button onclick="calcularRecortes()">Calcular</button>
+        <button onclick="limparCampos()" style="background: #999; margin-top: 10px;">Limpar Campos</button>
+
+        <div class="result" id="result"></div>
     </div>
+
+    <!-- Passo a passo da calculadora -->
+    <div class="tutorial">
+        <h3>Como Usar a Calculadora de Recortes ✂️</h3>
+        <p>📌 <strong>Passo 1:</strong> Informe o tamanho da folha original (largura e altura).</p>
+        <p>📌 <strong>Passo 2:</strong> Informe o tamanho dos recortes desejados (largura e altura).</p>
+        <p>📊 <strong>Passo 3:</strong> Clique em "Calcular" e veja os resultados!</p>
+        <p>🔄 <strong>Passo 4:</strong> Clique em "Limpar Campos" para reiniciar.</p>
+        <p>🚀 <strong>Fácil, rápido e gratuito!</strong> 💰 100% grátis – Você pode usar quantas vezes quiser!</p>
+    </div>
+
+    <!-- CTA do curso -->
+    <div class="cta">
+        <img src="banner.png" alt="Curso de Ilustração Infantil">
+        <h3>Aprenda a Criar Ilustrações Incríveis!</h3>
+        <p>Conheça nosso curso de Ilustração Infantil e transforme sua criatividade em um negócio de sucesso!</p>
+        <a href="https://kiwify.app/gpFMsBa?afid=WfWMVCwX" target="_blank">Quero Aprender Agora!</a>
+    </div>
+
     <script>
         function calcularRecortes() {
-            document.getElementById('result').innerText = "Aqui aparecerá o resultado!";
+            const originalWidth = document.getElementById('originalWidth').value;
+            const originalHeight = document.getElementById('originalHeight').value;
+            const cutWidth = document.getElementById('cutWidth').value;
+            const cutHeight = document.getElementById('cutHeight').value;
+
+            const numHorizontal = Math.floor(originalWidth / cutWidth);
+            const numVertical = Math.floor(originalHeight / cutHeight);
+            const total = numHorizontal * numVertical;
+
+            document.getElementById('result').innerHTML = `
+                <p>Recortes na horizontal: ${numHorizontal}</p>
+                <p>Recortes na vertical: ${numVertical}</p>
+                <p>Total de recortes possíveis: ${total}</p>
+            `;
         }
+
         function limparCampos() {
-            document.getElementById('originalWidth').value = '';
-            document.getElementById('originalHeight').value = '';
-            document.getElementById('cutWidth').value = '';
-            document.getElementById('cutHeight').value = '';
-            document.getElementById('result').innerText = '';
+            document.querySelectorAll("input").forEach(input => input.value = "");
+            document.getElementById('result').innerHTML = "";
         }
     </script>
+
 </body>
 </html>
