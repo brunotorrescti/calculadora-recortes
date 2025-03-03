@@ -6,7 +6,7 @@
     <title>Calculadora de Recortes</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-         {
+        * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -59,80 +59,4 @@
         }
         .steps {
             background: white;
-            padding: 20px;
-            max-width: 800px;
-            text-align: center;
-            border-radius: 10px;
-            margin-top: 20px;
-        }
-    </style>
-</head>
-<body>
-    <div class="main-container">
-        <div class="calculator">
-            <h2>Calculadora de Recortes</h2>
-            <label for="originalWidth">Largura da Folha Original (cm):</label>
-            <input type="number" id="originalWidth" placeholder="Ex: 100">
-            <label for="originalHeight">Altura da Folha Original (cm):</label>
-            <input type="number" id="originalHeight" placeholder="Ex: 50">
-            <label for="cutWidth">Largura da Folha a ser cortada (cm):</label>
-            <input type="number" id="cutWidth" placeholder="Ex: 10">
-            <label for="cutHeight">Altura da Folha a ser cortada (cm):</label>
-            <input type="number" id="cutHeight" placeholder="Ex: 5">
-            <button onclick="calcularRecortes()">Calcular</button>
-            <button onclick="limparCampos()" style="background: #999; margin-top: 10px;">Limpar Campos</button>
-            <div class="result" id="result"></div>
-        </div>
-        <div class="cta">
-            <img src="banner.png" alt="Curso de Ilustração Infantil">
-            <h3>Aprenda a Criar Ilustrações Incríveis!</h3>
-            <p>Transforme sua criatividade em um negócio de sucesso!</p>
-            <a href="https://kiwify.app/gpFMsBa?afid=WfWMVCwX" target="_blank">Quero Aprender Agora!</a>
-        </div>
-    </div>
-    <div class="steps">
-        <h3>Como Usar a Calculadora de Recortes ✂️</h3>
-        <p><strong>Passo 1:</strong> Informe o tamanho da folha original...</p>
-        <p><strong>Passo 2:</strong> Informe o tamanho dos recortes desejados...</p>
-        <p><strong>Passo 3:</strong> Clique em "Calcular"...</p>
-        <p><strong>Passo 4:</strong> Se precisar, clique em "Limpar Campos"...</p>
-        <p><strong>🚀 Fácil, rápido e gratuito!</strong></p>
-    </div>
-    <script>
-        function calcularRecortes() {
-            const originalWidth = document.getElementById('originalWidth');
-            const originalHeight = document.getElementById('originalHeight');
-            const cutWidth = document.getElementById('cutWidth');
-            const cutHeight = document.getElementById('cutHeight');
-
-            const widthValue = parseFloat(originalWidth.value);
-            const heightValue = parseFloat(originalHeight.value);
-            const cutWidthValue = parseFloat(cutWidth.value);
-            const cutHeightValue = parseFloat(cutHeight.value);
-
-            if (isNaN(widthValue) || isNaN(heightValue) || isNaN(cutWidthValue) || isNaN(cutHeightValue) ||
-                widthValue <= 0 || heightValue <= 0 || cutWidthValue <= 0 || cutHeightValue <= 0) {
-                document.getElementById('result').innerText = 'Por favor, insira valores válidos.';
-                return;
-            }
-
-            const numHorizontal = Math.floor(widthValue / cutWidthValue);
-            const numVertical = Math.floor(heightValue / cutHeightValue);
-            const total = numHorizontal * numVertical;
-
-            document.getElementById('result').innerHTML = `
-                <p>Recortes na horizontal: ${numHorizontal}</p>
-                <p>Recortes na vertical: ${numVertical}</p>
-                <p>Total de recortes possíveis: ${total}</p>
-            `;
-        }
-        function limparCampos() {
-            document.getElementById('originalWidth').value = '';
-            document.getElementById('originalHeight').value = '';
-            document.getElementById('cutWidth').value = '';
-            document.getElementById('cutHeight').value = '';
-            document.getElementById('result').innerHTML = '';
-        }
-    </script>
-</body>
-</html>
+            padding: 20px
