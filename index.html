@@ -30,83 +30,47 @@
       width: 100%;
     }
 
-    .calculator, .cta {
+    .calculator {
       background: #fff;
       padding: 25px;
       border-radius: 15px;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
       text-align: center;
-    }
-
-    .calculator {
       flex: 2;
     }
 
     .cta {
-      flex: 1;
+      flex: none;
+      width: 300px; /* Padrão de anúncio Google Ads */
+      height: 250px; /* Padrão de anúncio Google Ads */
       background: #ff7eb3;
       padding: 15px;
       text-align: center;
       border-radius: 10px;
       color: white;
       box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
     }
 
     .cta img {
       max-width: 100%;
+      height: auto;
       border-radius: 10px;
     }
 
     .cta a {
       background: white;
       color: #ff3b7f;
-      padding: 10px 15px;
+      padding: 8px 12px;
       text-decoration: none;
       font-weight: bold;
       border-radius: 5px;
       display: inline-block;
-      margin-top: 10px;
-    }
-
-    .calculator input {
-      width: 100%;
-      padding: 10px;
-      border: 2px solid #ddd;
-      border-radius: 8px;
-      font-size: 16px;
-      transition: border-color 0.3s ease-in-out;
-    }
-
-    .calculator input:focus {
-      border-color: #ff3b7f;
-      outline: none;
-    }
-
-    .calculator button {
-      background: #ff3b7f;
-      color: white;
-      padding: 12px 20px;
-      border: none;
-      border-radius: 8px;
-      font-weight: bold;
-      transition: background 0.3s ease-in-out;
-      cursor: pointer;
-      margin-top: 5px;
-    }
-
-    .calculator button:hover {
-      background: #ff2b6f;
-    }
-
-    .result {
-      opacity: 0;
-      transform: translateY(10px);
-      transition: all 0.3s ease-in-out;
-    }
-
-    .result.mostrar {
-      opacity: 1;
-      transform: translateY(0);
+      margin-top: 8px;
+      font-size: 14px;
     }
 
     .steps {
@@ -117,21 +81,6 @@
       padding: 20px;
       margin: 20px auto;
       text-align: center;
-    }
-
-    .steps-list {
-      list-style: none;
-      padding: 0;
-      text-align: center;
-    }
-
-    .steps-list li {
-      font-size: 18px;
-      margin: 12px 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
     }
   </style>
 </head>
@@ -152,9 +101,8 @@
     </div>
     <div class="cta">
       <img src="banner.png" alt="Curso de Ilustração Infantil" />
-      <h3>Aprenda a Criar Ilustrações Incríveis!</h3>
-      <p>Transforme sua criatividade em um negócio de sucesso!</p>
-      <a href="https://kiwify.app/gpFMsBa?afid=WfWMVCwX" target="_blank">Quero Aprender Agora!</a>
+      <h3 style="font-size: 16px; margin: 5px 0;">Aprenda a Criar Ilustrações!</h3>
+      <a href="https://kiwify.app/gpFMsBa?afid=WfWMVCwX" target="_blank">Quero Aprender!</a>
     </div>
   </div>
 
