@@ -21,6 +21,7 @@
         }
         .wrapper {
             display: flex;
+            justify-content: space-between;
             width: 100%;
             max-width: 1200px;
         }
@@ -32,7 +33,11 @@
             max-width: 600px;
             width: 100%;
             text-align: center;
-            flex: 1;
+        }
+        .sidebar {
+            max-width: 280px;
+            width: 100%;
+            margin-left: 20px;
         }
         .cta {
             background: linear-gradient(to right, #ff7eb3, #ff758c);
@@ -40,10 +45,7 @@
             text-align: center;
             border-radius: 10px;
             color: white;
-            max-width: 300px;
-            width: 100%;
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-            margin-left: 20px;
         }
         .cta img {
             max-width: 100%;
@@ -123,9 +125,10 @@
                 flex-direction: column;
                 align-items: center;
             }
-            .cta {
-                margin: 20px 0 0 0;
+            .sidebar {
                 max-width: 100%;
+                margin-left: 0;
+                margin-top: 20px;
             }
         }
     </style>
@@ -153,11 +156,13 @@
             <div class="result" id="result"></div>
         </div>
 
-        <div class="cta">
-            <img src="banner.png" alt="Curso de Ilustração Infantil">
-            <h3>Aprenda a Criar Ilustrações!</h3>
-            <p>Conheça nosso curso de Ilustração Infantil e transforme sua criatividade em um negócio de sucesso!</p>
-            <a href="https://kiwify.app/gpFMsBa?afid=WfWMVCwX" target="_blank">Quero Aprender!</a>
+        <div class="sidebar">
+            <div class="cta">
+                <img src="banner.png" alt="Curso de Ilustração Infantil">
+                <h3>Aprenda a Criar Ilustrações!</h3>
+                <p>Conheça nosso curso de Ilustração Infantil e transforme sua criatividade em um negócio de sucesso!</p>
+                <a href="https://kiwify.app/gpFMsBa?afid=WfWMVCwX" target="_blank">Quero Aprender!</a>
+            </div>
         </div>
     </div>
 
