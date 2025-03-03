@@ -17,8 +17,15 @@
             display: flex;
             justify-content: center;
             align-items: flex-start;
-            flex-direction: column;
             padding: 20px;
+            flex-wrap: wrap;
+        }
+        .main-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            width: 100%;
+            max-width: 1200px;
         }
         .container {
             background: #fff;
@@ -28,7 +35,6 @@
             max-width: 400px;
             width: 100%;
             text-align: center;
-            margin: auto;
         }
         h2 {
             font-size: 22px;
@@ -95,30 +101,89 @@
             color: #555;
             margin-bottom: 10px;
         }
+        .cta {
+            background: linear-gradient(to right, #ff7eb3, #ff758c);
+            padding: 20px;
+            text-align: center;
+            border-radius: 10px;
+            color: white;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            max-width: 300px;
+            width: 100%;
+        }
+        .cta img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+        .cta h3 {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .cta p {
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+        .cta a {
+            background: white;
+            color: #ff3b7f;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            display: inline-block;
+            transition: 0.3s ease;
+        }
+        .cta a:hover {
+            background: #ffe6ec;
+        }
+        @media (max-width: 768px) {
+            .main-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            .cta {
+                max-width: 400px;
+            }
+        }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <h2>Calculadora de Recortes</h2>
-        <label for="originalWidth">Largura da Folha Original (cm):</label>
-        <input type="number" id="originalWidth" placeholder="Ex: 100">
+    <div class="main-container">
+        <!-- Calculadora -->
+        <div class="container">
+            <h2>Calculadora de Recortes</h2>
+            <label for="originalWidth">Largura da Folha Original (cm):</label>
+            <input type="number" id="originalWidth" placeholder="Ex: 100">
 
-        <label for="originalHeight">Altura da Folha Original (cm):</label>
-        <input type="number" id="originalHeight" placeholder="Ex: 50">
+            <label for="originalHeight">Altura da Folha Original (cm):</label>
+            <input type="number" id="originalHeight" placeholder="Ex: 50">
 
-        <label for="cutWidth">Largura da Folha a ser cortada (cm):</label>
-        <input type="number" id="cutWidth" placeholder="Ex: 10">
+            <label for="cutWidth">Largura da Folha a ser cortada (cm):</label>
+            <input type="number" id="cutWidth" placeholder="Ex: 10">
 
-        <label for="cutHeight">Altura da Folha a ser cortada (cm):</label>
-        <input type="number" id="cutHeight" placeholder="Ex: 5">
+            <label for="cutHeight">Altura da Folha a ser cortada (cm):</label>
+            <input type="number" id="cutHeight" placeholder="Ex: 5">
 
-        <button onclick="calcularRecortes()">Calcular</button>
-        <button onclick="limparCampos()" style="background: #999; margin-top: 10px;">Limpar Campos</button>
+            <button onclick="calcularRecortes()">Calcular</button>
+            <button onclick="limparCampos()" style="background: #999; margin-top: 10px;">Limpar Campos</button>
 
-        <div class="result" id="result"></div>
+            <div class="result" id="result"></div>
+        </div>
+
+        <!-- CTA do Curso -->
+        <div class="cta">
+            <img src="banner.png" alt="Curso de Ilustração Infantil">
+            <h3>Aprenda a Criar Ilustrações Incríveis!</h3>
+            <p>Conheça nosso curso de Ilustração Infantil e transforme sua criatividade em um negócio de sucesso!</p>
+            <a href="https://kiwify.app/gpFMsBa?afid=WfWMVCwX" target="_blank">Quero Aprender Agora!</a>
+        </div>
     </div>
 
+    <!-- Instruções -->
     <div class="instructions">
         <h3>Como usar a Calculadora de Recortes?</h3>
         <p>1️⃣ **Digite** a largura e altura da folha original.</p>
