@@ -17,65 +17,18 @@
             display: flex;
             justify-content: center;
             align-items: flex-start;
+            flex-direction: column;
             padding: 20px;
-        }
-        .wrapper {
-            display: flex;
-            justify-content: center;
-            width: 100%;
-            max-width: 1200px;
-            gap: 40px; /* Espaçamento maior entre a calculadora e o CTA */
         }
         .container {
             background: #fff;
-            padding: 30px;
+            padding: 25px;
             border-radius: 15px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            max-width: 700px; /* Aumenta a largura da calculadora */
+            max-width: 400px;
             width: 100%;
             text-align: center;
-            flex-grow: 1;
-        }
-        .sidebar {
-            max-width: 280px;
-            width: 100%;
-        }
-        .cta {
-            background: linear-gradient(to right, #ff7eb3, #ff758c);
-            padding: 15px;
-            text-align: center;
-            border-radius: 10px;
-            color: white;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-        }
-        .cta img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 10px;
-            margin-bottom: 10px;
-        }
-        .cta h3 {
-            font-size: 16px;
-            font-weight: bold;
-            margin-bottom: 8px;
-        }
-        .cta p {
-            font-size: 14px;
-            margin-bottom: 10px;
-        }
-        .cta a {
-            background: white;
-            color: #ff3b7f;
-            padding: 8px 12px;
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 5px;
-            display: inline-block;
-            transition: 0.3s ease;
-            font-size: 14px;
-        }
-        .cta a:hover {
-            background: #ffe6ec;
+            margin: auto;
         }
         h2 {
             font-size: 22px;
@@ -121,50 +74,58 @@
             font-weight: bold;
             color: #333;
         }
-        @media (max-width: 992px) {
-            .wrapper {
-                flex-direction: column;
-                align-items: center;
-            }
-            .sidebar {
-                max-width: 100%;
-                margin-left: 0;
-                margin-top: 20px;
-            }
+        .instructions {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+            margin: 20px auto;
+            text-align: left;
+        }
+        .instructions h3 {
+            font-size: 18px;
+            font-weight: bold;
+            color: #ff3b7f;
+            margin-bottom: 10px;
+        }
+        .instructions p {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 10px;
         }
     </style>
 </head>
 <body>
 
-    <div class="wrapper">
-        <div class="container">
-            <h2>Calculadora de Recortes</h2>
-            <label for="originalWidth">Largura da Folha Original (cm):</label>
-            <input type="number" id="originalWidth" placeholder="Ex: 100">
+    <div class="container">
+        <h2>Calculadora de Recortes</h2>
+        <label for="originalWidth">Largura da Folha Original (cm):</label>
+        <input type="number" id="originalWidth" placeholder="Ex: 100">
 
-            <label for="originalHeight">Altura da Folha Original (cm):</label>
-            <input type="number" id="originalHeight" placeholder="Ex: 50">
+        <label for="originalHeight">Altura da Folha Original (cm):</label>
+        <input type="number" id="originalHeight" placeholder="Ex: 50">
 
-            <label for="cutWidth">Largura da Folha a ser cortada (cm):</label>
-            <input type="number" id="cutWidth" placeholder="Ex: 10">
+        <label for="cutWidth">Largura da Folha a ser cortada (cm):</label>
+        <input type="number" id="cutWidth" placeholder="Ex: 10">
 
-            <label for="cutHeight">Altura da Folha a ser cortada (cm):</label>
-            <input type="number" id="cutHeight" placeholder="Ex: 5">
+        <label for="cutHeight">Altura da Folha a ser cortada (cm):</label>
+        <input type="number" id="cutHeight" placeholder="Ex: 5">
 
-            <button onclick="calcularRecortes()">Calcular</button>
-            <button onclick="limparCampos()" style="background: #999; margin-top: 10px;">Limpar Campos</button>
+        <button onclick="calcularRecortes()">Calcular</button>
+        <button onclick="limparCampos()" style="background: #999; margin-top: 10px;">Limpar Campos</button>
 
-            <div class="result" id="result"></div>
-        </div>
+        <div class="result" id="result"></div>
+    </div>
 
-        <div class="sidebar">
-            <div class="cta">
-                <img src="banner.png" alt="Curso de Ilustração Infantil">
-                <h3>Aprenda a Criar Ilustrações!</h3>
-                <p>Conheça nosso curso de Ilustração Infantil e transforme sua criatividade em um negócio de sucesso!</p>
-                <a href="https://kiwify.app/gpFMsBa?afid=WfWMVCwX" target="_blank">Quero Aprender!</a>
-            </div>
-        </div>
+    <div class="instructions">
+        <h3>Como usar a Calculadora de Recortes?</h3>
+        <p>1️⃣ **Digite** a largura e altura da folha original.</p>
+        <p>2️⃣ **Insira** o tamanho desejado para os recortes.</p>
+        <p>3️⃣ **Clique no botão "Calcular"** e veja quantos recortes são possíveis.</p>
+        <p>4️⃣ Se quiser testar novos valores, basta **clicar em "Limpar Campos"**.</p>
+        <p>✅ Esta calculadora é **100% gratuita** e foi feita para facilitar seu dia a dia!</p>
     </div>
 
     <script>
@@ -201,7 +162,7 @@
             document.getElementById('originalHeight').value = '';
             document.getElementById('cutWidth').value = '';
             document.getElementById('cutHeight').value = '';
-            document.getElementById('result').innerHTML = '';
+            document.getElementById('result').innerText = '';
         }
     </script>
 
