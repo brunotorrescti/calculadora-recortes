@@ -22,85 +22,30 @@
         .main-container {
             display: flex;
             justify-content: center;
-            align-items: flex-start;
-            width: 100%;
-            max-width: 1100px;
             gap: 20px;
+            max-width: 1100px;
+            width: 100%;
         }
-        .container {
+        .calculator {
             background: #fff;
             padding: 25px;
             border-radius: 15px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            width: 65%;
+            flex: 2;
             text-align: center;
         }
-        h2 {
-            font-size: 22px;
-            font-weight: bold;
-            color: #333;
-            margin-bottom: 15px;
-        }
-        label {
-            display: block;
-            font-size: 14px;
-            margin-bottom: 5px;
-            color: #555;
-            font-weight: 600;
-            text-align: left;
-        }
-        input {
-            width: calc(50% - 5px);
-            padding: 8px;
-            margin-bottom: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 14px;
-        }
-        button {
-            background: #ff3b7f;
-            color: white;
-            border: none;
-            padding: 10px;
-            width: 45%;
-            cursor: pointer;
-            border-radius: 5px;
-            font-size: 16px;
-            font-weight: bold;
-            margin: 10px 2%;
-        }
-        button:hover {
-            background: #e91e63;
-        }
-        .result {
-            margin-top: 15px;
-            font-size: 16px;
-            font-weight: bold;
-            color: #333;
-        }
         .cta {
-            background: linear-gradient(to right, #ff7eb3, #ff758c);
+            background: #ff7eb3;
             padding: 15px;
             text-align: center;
             border-radius: 10px;
             color: white;
+            flex: 1;
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-            width: 30%;
         }
         .cta img {
             max-width: 100%;
-            height: auto;
             border-radius: 10px;
-            margin-bottom: 10px;
-        }
-        .cta h3 {
-            font-size: 18px;
-            font-weight: bold;
-            margin-bottom: 8px;
-        }
-        .cta p {
-            font-size: 14px;
-            margin-bottom: 10px;
         }
         .cta a {
             background: white;
@@ -110,56 +55,21 @@
             font-weight: bold;
             border-radius: 5px;
             display: inline-block;
-            transition: 0.3s ease;
+            margin-top: 10px;
         }
-        .cta a:hover {
-            background: #ffe6ec;
-        }
-        .tutorial {
-            background: #fff;
+        .steps {
+            background: white;
             padding: 20px;
-            margin-top: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            max-width: 80%;
+            max-width: 800px;
             text-align: center;
-        }
-        .tutorial h3 {
-            color: #ff3b7f;
-            font-size: 22px;
-            margin-bottom: 15px;
-        }
-        .tutorial p {
-            font-size: 16px;
-            color: #333;
-            margin-bottom: 10px;
-        }
-        @media (max-width: 768px) {
-            .main-container {
-                flex-direction: column;
-                align-items: center;
-            }
-            .cta {
-                margin-left: 0;
-                margin-top: 20px;
-                width: 100%;
-            }
-            .container {
-                width: 100%;
-            }
-            .tutorial {
-                max-width: 100%;
-            }
-            input {
-                width: 100%;
-            }
+            border-radius: 10px;
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
-
     <div class="main-container">
-        <div class="container">
+        <div class="calculator">
             <h2>Calculadora de Recortes</h2>
             <label for="originalWidth">Largura da Folha Original (cm):</label>
             <input type="number" id="originalWidth" placeholder="Ex: 100">
@@ -170,10 +80,9 @@
             <label for="cutHeight">Altura da Folha a ser cortada (cm):</label>
             <input type="number" id="cutHeight" placeholder="Ex: 5">
             <button onclick="calcularRecortes()">Calcular</button>
-            <button onclick="limparCampos()" style="background: #999;">Limpar Campos</button>
+            <button onclick="limparCampos()" style="background: #999; margin-top: 10px;">Limpar Campos</button>
             <div class="result" id="result"></div>
         </div>
-
         <div class="cta">
             <img src="banner.png" alt="Curso de Ilustração Infantil">
             <h3>Aprenda a Criar Ilustrações Incríveis!</h3>
@@ -181,25 +90,34 @@
             <a href="https://kiwify.app/gpFMsBa?afid=WfWMVCwX" target="_blank">Quero Aprender Agora!</a>
         </div>
     </div>
-
-    <div class="tutorial">
+    <div class="steps">
         <h3>Como Usar a Calculadora de Recortes ✂️</h3>
-        <p>📌 <strong>Passo 1:</strong> Informe o tamanho da folha original (largura e altura).</p>
-        <p>📌 <strong>Passo 2:</strong> Informe o tamanho dos recortes desejados (largura e altura).</p>
-        <p>📊 <strong>Passo 3:</strong> Clique em "Calcular" e veja os resultados!</p>
-        <p>🔄 <strong>Passo 4:</strong> Clique em "Limpar Campos" para reiniciar.</p>
-        <p>🚀 <strong>Fácil, rápido e gratuito!</strong> 💰 100% grátis – Você pode usar quantas vezes quiser!</p>
+        <p><strong>Passo 1:</strong> Informe o tamanho da folha original...</p>
+        <p><strong>Passo 2:</strong> Informe o tamanho dos recortes desejados...</p>
+        <p><strong>Passo 3:</strong> Clique em "Calcular"...</p>
+        <p><strong>Passo 4:</strong> Se precisar, clique em "Limpar Campos"...</p>
+        <p><strong>🚀 Fácil, rápido e gratuito!</strong></p>
     </div>
-
     <script>
         function calcularRecortes() {
-            const originalWidth = document.getElementById('originalWidth').value;
-            const originalHeight = document.getElementById('originalHeight').value;
-            const cutWidth = document.getElementById('cutWidth').value;
-            const cutHeight = document.getElementById('cutHeight').value;
+            const originalWidth = document.getElementById('originalWidth');
+            const originalHeight = document.getElementById('originalHeight');
+            const cutWidth = document.getElementById('cutWidth');
+            const cutHeight = document.getElementById('cutHeight');
 
-            const numHorizontal = Math.floor(originalWidth / cutWidth);
-            const numVertical = Math.floor(originalHeight / cutHeight);
+            const widthValue = parseFloat(originalWidth.value);
+            const heightValue = parseFloat(originalHeight.value);
+            const cutWidthValue = parseFloat(cutWidth.value);
+            const cutHeightValue = parseFloat(cutHeight.value);
+
+            if (isNaN(widthValue) || isNaN(heightValue) || isNaN(cutWidthValue) || isNaN(cutHeightValue) ||
+                widthValue <= 0 || heightValue <= 0 || cutWidthValue <= 0 || cutHeightValue <= 0) {
+                document.getElementById('result').innerText = 'Por favor, insira valores válidos.';
+                return;
+            }
+
+            const numHorizontal = Math.floor(widthValue / cutWidthValue);
+            const numVertical = Math.floor(heightValue / cutHeightValue);
             const total = numHorizontal * numVertical;
 
             document.getElementById('result').innerHTML = `
@@ -208,12 +126,13 @@
                 <p>Total de recortes possíveis: ${total}</p>
             `;
         }
-
         function limparCampos() {
-            document.querySelectorAll("input").forEach(input => input.value = "");
-            document.getElementById('result').innerHTML = "";
+            document.getElementById('originalWidth').value = '';
+            document.getElementById('originalHeight').value = '';
+            document.getElementById('cutWidth').value = '';
+            document.getElementById('cutHeight').value = '';
+            document.getElementById('result').innerHTML = '';
         }
     </script>
-
 </body>
 </html>
