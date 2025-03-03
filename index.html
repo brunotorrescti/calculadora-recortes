@@ -110,6 +110,13 @@
             background: #e91e63;
         }
 
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+            font-weight: bold;
+        }
+
         .passo-passo {
             background: #fff;
             padding: 20px;
@@ -130,22 +137,6 @@
             text-align: left;
             font-size: 16px;
             margin-bottom: 10px;
-        }
-
-        /* Responsividade */
-        @media (max-width: 900px) {
-            .layout-container {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .calculadora, .cta {
-                width: 90%;
-            }
-
-            .passo-passo {
-                width: 100%;
-            }
         }
     </style>
 </head>
@@ -171,22 +162,32 @@
 
         <div class="result" id="result"></div>
     </div>
-
-    <div class="cta">
-        <img src="banner.png" alt="Curso de Ilustração Infantil">
-        <h3>Aprenda a Criar Ilustrações Incríveis!</h3>
-        <p>Transforme sua criatividade em um negócio de sucesso!</p>
-        <a href="https://kiwify.app/gpFMsBa?afid=WfWMVCwX" target="_blank">Quero Aprender Agora!</a>
-    </div>
 </div>
 
-<div class="passo-passo">
-    <h2>Como Usar a Calculadora de Recortes ✂️</h2>
-    <p>🔹 <strong>Passo 1:</strong> Informe o tamanho da folha original.</p>
-    <p>🔹 <strong>Passo 2:</strong> Informe o tamanho dos recortes desejados.</p>
-    <p>🔹 <strong>Passo 3:</strong> Clique em "Calcular" e veja os resultados.</p>
-    <p>🔹 <strong>Passo 4:</strong> Para um novo cálculo, clique em "Limpar Campos".</p>
-</div>
+<script>
+    function calcularRecortes() {
+        const width = parseFloat(document.getElementById('originalWidth').value);
+        const height = parseFloat(document.getElementById('originalHeight').value);
+        const cutWidth = parseFloat(document.getElementById('cutWidth').value);
+        const cutHeight = parseFloat(document.getElementById('cutHeight').value);
+
+        if (isNaN(width) || isNaN(height) || isNaN(cutWidth) || isNaN(cutHeight) || width <= 0 || height <= 0 || cutWidth <= 0 || cutHeight <= 0) {
+            document.getElementById('result').innerText = 'Por favor, insira valores válidos.';
+            return;
+        }
+
+        const numHorizontal = Math.floor(width / cutWidth);
+        const numVertical = Math.floor(height / cutHeight);
+        const total = numHorizontal * numVertical;
+
+        document.getElementById('result').innerHTML = `Recortes na horizontal: ${numHorizontal}<br>Recortes na vertical: ${numVertical}<br>Total: ${total}`;
+    }
+
+    function limparCampos() {
+        document.querySelectorAll("input").forEach(input => input.value = '');
+        document.getElementById('result').innerHTML = '';
+    }
+</script>
 
 </body>
 </html>
