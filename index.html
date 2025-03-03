@@ -10,7 +10,7 @@
     rel="stylesheet"
   />
   <style>
-    /* Seletor universal corrigido */
+    /* Seletor universal */
     * {
       margin: 0;
       padding: 0;
@@ -43,7 +43,6 @@
       text-align: center;
     }
 
-    /* Regras adicionais para estilizar labels e inputs */
     .calculator label {
       display: block;
       margin: 10px 0 5px;
@@ -109,13 +108,15 @@
       margin-top: 10px;
     }
 
+    /* DIV steps melhorada */
     .steps {
       background: white;
-      padding: 20px;
-      max-width: 800px;
+      width: 100%;       /* Ocupa 100% da largura disponível */
+      max-width: 1100px; /* Limita a largura a 1100px, igual à main-container */
       text-align: center;
       border-radius: 10px;
-      margin-top: 20px;
+      padding: 20px;
+      margin: 20px auto; /* Centraliza horizontalmente e dá espaço em cima e embaixo */
     }
   </style>
 </head>
