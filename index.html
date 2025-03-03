@@ -21,23 +21,24 @@
         }
         .wrapper {
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             width: 100%;
             max-width: 1200px;
+            gap: 40px; /* Espaçamento maior entre a calculadora e o CTA */
         }
         .container {
             background: #fff;
-            padding: 25px;
+            padding: 30px;
             border-radius: 15px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            max-width: 600px;
+            max-width: 700px; /* Aumenta a largura da calculadora */
             width: 100%;
             text-align: center;
+            flex-grow: 1;
         }
         .sidebar {
             max-width: 280px;
             width: 100%;
-            margin-left: 20px;
         }
         .cta {
             background: linear-gradient(to right, #ff7eb3, #ff758c);
@@ -120,7 +121,7 @@
             font-weight: bold;
             color: #333;
         }
-        @media (max-width: 768px) {
+        @media (max-width: 992px) {
             .wrapper {
                 flex-direction: column;
                 align-items: center;
