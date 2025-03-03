@@ -4,133 +4,208 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora de Recortes</title>
-    <link rel="icon" href="data:,"> <!-- Ícone corrigido -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: "Poppins", sans-serif;
+            font-family: 'Poppins', sans-serif;
         }
-
+        
         body {
             background: #ff9a9e;
             display: flex;
             flex-direction: column;
             align-items: center;
+            justify-content: center;
             padding: 20px;
-            transition: background 0.3s ease-in-out;
         }
 
-        .main-container {
+        .layout-container {
             display: flex;
             justify-content: center;
-            gap: 20px;
+            align-items: flex-start;
             max-width: 1100px;
             width: 100%;
-            align-items: stretch;
+            gap: 20px;
         }
 
-        .calculator {
+        .calculadora {
             background: #fff;
             padding: 25px;
             border-radius: 15px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 65%;
             text-align: center;
-            flex: 2;
         }
 
         .cta {
-            flex: none;
-            width: 300px;
-            height: 250px;
             background: #ff7eb3;
-            padding: 15px;
+            padding: 20px;
             text-align: center;
             border-radius: 10px;
             color: white;
+            width: 30%;
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
         }
 
         .cta img {
             max-width: 100%;
-            height: auto;
             border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        .cta h3 {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .cta p {
+            font-size: 16px;
+            margin-bottom: 15px;
         }
 
         .cta a {
             background: white;
             color: #ff3b7f;
-            padding: 8px 12px;
+            padding: 10px 20px;
             text-decoration: none;
             font-weight: bold;
             border-radius: 5px;
             display: inline-block;
-            margin-top: 8px;
-            font-size: 14px;
+            transition: 0.3s ease;
         }
 
-        .steps {
-            background: white;
+        .cta a:hover {
+            background: #ffe6ec;
+        }
+
+        input, button {
             width: 100%;
-            max-width: 1100px;
-            border-radius: 10px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+
+        button {
+            background: #ff3b7f;
+            color: #fff;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #e91e63;
+        }
+
+        .passo-passo {
+            background: #fff;
             padding: 20px;
-            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            max-width: 850px;
+            width: 100%;
             text-align: center;
+            margin-top: 20px;
         }
 
-        .steps-list {
-            list-style: none;
-            padding: 0;
-            text-align: center;
+        .passo-passo h2 {
+            color: #ff3b7f;
+            margin-bottom: 15px;
         }
 
-        .steps-list li {
-            font-size: 18px;
-            margin-bottom: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
+        .passo-passo p {
+            text-align: left;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        /* Responsividade */
+        @media (max-width: 900px) {
+            .layout-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .calculadora, .cta {
+                width: 90%;
+            }
+
+            .passo-passo {
+                width: 100%;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="main-container">
-        <div class="calculator">
-            <h2>Calculadora de Recortes</h2>
-            <label for="originalWidth">Largura da Folha Original (cm):</label>
-            <input type="number" id="originalWidth" placeholder="Ex: 100">
-            <label for="originalHeight">Altura da Folha Original (cm):</label>
-            <input type="number" id="originalHeight" placeholder="Ex: 50">
-            <label for="cutWidth">Largura da Folha a ser cortada (cm):</label>
-            <input type="number" id="cutWidth" placeholder="Ex: 10">
-            <label for="cutHeight">Altura da Folha a ser cortada (cm):</label>
-            <input type="number" id="cutHeight" placeholder="Ex: 5">
-            <button onclick="calcularRecortes()">Calcular</button>
-            <div class="result" id="result"></div>
-        </div>
-        <div class="cta">
-            <img src="banner.png" alt="Curso de Ilustração Infantil">
-            <h3 style="font-size: 16px; margin: 5px 0;">Aprenda a Criar Ilustrações!</h3>
-            <a href="https://kiwify.app/gpFMsBa?afid=WfWMVCwX" target="_blank">Quero Aprender!</a>
-        </div>
+
+<div class="layout-container">
+    <div class="calculadora">
+        <h2>Calculadora de Recortes</h2>
+        <label for="originalWidth">Largura da Folha Original (cm):</label>
+        <input type="number" id="originalWidth" placeholder="Ex: 100">
+
+        <label for="originalHeight">Altura da Folha Original (cm):</label>
+        <input type="number" id="originalHeight" placeholder="Ex: 50">
+
+        <label for="cutWidth">Largura da Folha a ser cortada (cm):</label>
+        <input type="number" id="cutWidth" placeholder="Ex: 10">
+
+        <label for="cutHeight">Altura da Folha a ser cortada (cm):</label>
+        <input type="number" id="cutHeight" placeholder="Ex: 5">
+
+        <button onclick="calcularRecortes()">Calcular</button>
+        <button onclick="limparCampos()" style="background: #999; margin-top: 10px;">Limpar Campos</button>
+
+        <div class="result" id="result"></div>
     </div>
 
-    <div class="steps">
-        <h3>Como Usar a Calculadora de Recortes ✂️</h3>
-        <ol class="steps-list">
-            <li>📝 <strong>Passo 1:</strong> Informe o tamanho da folha original.</li>
-            <li>📏 <strong>Passo 2:</strong> Informe o tamanho dos recortes desejados.</li>
-            <li>🔢 <strong>Passo 3:</strong> Clique em "Calcular".</li>
-            <li>♻️ <strong>Passo 4:</strong> Se precisar, clique em "Limpar Campos".</li>
-        </ol>
+    <div class="cta">
+        <img src="banner.png" alt="Curso de Ilustração Infantil">
+        <h3>Aprenda a Criar Ilustrações Incríveis!</h3>
+        <p>Transforme sua criatividade em um negócio de sucesso!</p>
+        <a href="https://kiwify.app/gpFMsBa?afid=WfWMVCwX" target="_blank">Quero Aprender Agora!</a>
     </div>
+</div>
+
+<div class="passo-passo">
+    <h2>Como Usar a Calculadora de Recortes ✂️</h2>
+    <p>🔹 <strong>Passo 1:</strong> Informe o tamanho da folha original.</p>
+    <p>🔹 <strong>Passo 2:</strong> Informe o tamanho dos recortes desejados.</p>
+    <p>🔹 <strong>Passo 3:</strong> Clique em "Calcular" e veja os resultados.</p>
+    <p>🔹 <strong>Passo 4:</strong> Para um novo cálculo, clique em "Limpar Campos".</p>
+</div>
+
+<script>
+    function calcularRecortes() {
+        const widthValue = parseFloat(document.getElementById('originalWidth').value);
+        const heightValue = parseFloat(document.getElementById('originalHeight').value);
+        const cutWidthValue = parseFloat(document.getElementById('cutWidth').value);
+        const cutHeightValue = parseFloat(document.getElementById('cutHeight').value);
+
+        if (isNaN(widthValue) || isNaN(heightValue) || isNaN(cutWidthValue) || isNaN(cutHeightValue) || 
+            widthValue <= 0 || heightValue <= 0 || cutWidthValue <= 0 || cutHeightValue <= 0) {
+            document.getElementById('result').innerText = 'Por favor, insira valores válidos.';
+            return;
+        }
+
+        const numHorizontal = Math.floor(widthValue / cutWidthValue);
+        const numVertical = Math.floor(heightValue / cutHeightValue);
+        const total = numHorizontal * numVertical;
+
+        document.getElementById('result').innerHTML = `Recortes na horizontal: ${numHorizontal} | Recortes na vertical: ${numVertical} | Total: ${total}`;
+    }
+
+    function limparCampos() {
+        document.querySelectorAll("input").forEach(input => input.value = '');
+        document.getElementById('result').innerText = '';
+    }
+</script>
+
 </body>
 </html>
