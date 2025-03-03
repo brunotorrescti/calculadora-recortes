@@ -33,11 +33,17 @@
 
         .calculadora {
             background: #fff;
-            padding: 25px;
+            padding: 30px;
             border-radius: 15px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             width: 65%;
             text-align: center;
+        }
+
+        .calculadora h2 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #333;
         }
 
         .cta {
@@ -47,7 +53,7 @@
             border-radius: 10px;
             color: white;
             width: 30%;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
         }
 
         .cta img {
@@ -84,11 +90,11 @@
 
         input, button {
             width: 100%;
-            padding: 10px;
+            padding: 12px;
             border: 1px solid #ddd;
             border-radius: 8px;
-            font-size: 14px;
-            margin-top: 5px;
+            font-size: 16px;
+            margin-top: 10px;
         }
 
         button {
@@ -97,6 +103,7 @@
             font-size: 16px;
             font-weight: bold;
             cursor: pointer;
+            transition: background 0.3s ease;
         }
 
         button:hover {
@@ -107,7 +114,7 @@
             background: #fff;
             padding: 20px;
             border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             max-width: 850px;
             width: 100%;
             text-align: center;
@@ -180,32 +187,6 @@
     <p>🔹 <strong>Passo 3:</strong> Clique em "Calcular" e veja os resultados.</p>
     <p>🔹 <strong>Passo 4:</strong> Para um novo cálculo, clique em "Limpar Campos".</p>
 </div>
-
-<script>
-    function calcularRecortes() {
-        const widthValue = parseFloat(document.getElementById('originalWidth').value);
-        const heightValue = parseFloat(document.getElementById('originalHeight').value);
-        const cutWidthValue = parseFloat(document.getElementById('cutWidth').value);
-        const cutHeightValue = parseFloat(document.getElementById('cutHeight').value);
-
-        if (isNaN(widthValue) || isNaN(heightValue) || isNaN(cutWidthValue) || isNaN(cutHeightValue) || 
-            widthValue <= 0 || heightValue <= 0 || cutWidthValue <= 0 || cutHeightValue <= 0) {
-            document.getElementById('result').innerText = 'Por favor, insira valores válidos.';
-            return;
-        }
-
-        const numHorizontal = Math.floor(widthValue / cutWidthValue);
-        const numVertical = Math.floor(heightValue / cutHeightValue);
-        const total = numHorizontal * numVertical;
-
-        document.getElementById('result').innerHTML = `Recortes na horizontal: ${numHorizontal} | Recortes na vertical: ${numVertical} | Total: ${total}`;
-    }
-
-    function limparCampos() {
-        document.querySelectorAll("input").forEach(input => input.value = '');
-        document.getElementById('result').innerText = '';
-    }
-</script>
 
 </body>
 </html>
