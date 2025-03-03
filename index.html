@@ -12,16 +12,16 @@
             box-sizing: border-box;
             font-family: 'Poppins', sans-serif;
         }
-        
+
         body {
             background: #ff9a9e;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
             padding: 20px;
         }
-        .container {
+
+        .layout-container {
             display: flex;
             justify-content: center;
             align-items: flex-start;
@@ -37,12 +37,6 @@
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             width: 65%;
             text-align: center;
-        }
-
-        .calculadora h2 {
-            margin-bottom: 20px;
-            font-size: 24px;
-            color: #333;
         }
 
         .cta {
@@ -119,7 +113,8 @@
 </head>
 <body>
 
-<div class="container">
+<div class="layout-container">
+    <div class="calculadora">
         <h2>Calculadora de Recortes</h2>
         <label for="originalWidth">Largura da Folha Original (cm):</label>
         <input type="number" id="originalWidth" placeholder="Ex: 100">
@@ -134,9 +129,11 @@
         <input type="number" id="cutHeight" placeholder="Ex: 5">
 
         <button onclick="calcularRecortes()">Calcular</button>
+        <button onclick="limparCampos()" style="background: #999; margin-top: 10px;">Limpar Campos</button>
 
         <div class="result" id="result"></div>
     </div>
+
     <div class="cta">
         <img src="banner.png" alt="Curso de Ilustração Infantil">
         <h3>Aprenda a Criar Ilustrações Incríveis!</h3>
