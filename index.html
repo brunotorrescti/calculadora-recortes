@@ -1,35 +1,204 @@
-import React from "react";
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Recortes</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        body {
+            background: linear-gradient(to right, #ff9a9e, #fad0c4);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+        .container {
+            background: #fff;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        h2 {
+            font-size: 22px;
+            font-weight: 600;
+            color: #ff3b7f;
+            margin-bottom: 20px;
+        }
+        label {
+            font-size: 14px;
+            font-weight: 500;
+            display: block;
+            text-align: left;
+            margin-top: 10px;
+            color: #555;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+        button {
+            background: #ff3b7f;
+            color: #fff;
+            border: none;
+            padding: 12px;
+            width: 100%;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 15px;
+            transition: background 0.3s ease;
+        }
+        button:hover {
+            background: #e91e63;
+        }
+        .result {
+            margin-top: 15px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+        }
+        .cta {
+            background: linear-gradient(to right, #ff7eb3, #ff758c);
+            padding: 20px;
+            text-align: center;
+            border-radius: 10px;
+            color: white;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+        }
+        .cta img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+        .cta h3 {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .cta p {
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+        .cta a {
+            background: white;
+            color: #ff3b7f;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            display: inline-block;
+            transition: 0.3s ease;
+        }
+        .cta a:hover {
+            background: #ffe6ec;
+        }
+        .tutorial {
+            background: #fff;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+            text-align: left;
+        }
+        .tutorial h3 {
+            color: #ff3b7f;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        .tutorial p {
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        @media (max-width: 480px) {
+            .container, .cta, .tutorial {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
 
-const Calculadora = () => {
-  return (
-    <div className="bg-white shadow-lg rounded-2xl p-6 w-full max-w-md mx-auto">
-      <h2 className="text-xl font-bold text-gray-700 mb-4">Calculadora</h2>
-      <input type="text" className="w-full p-2 border rounded mb-2" placeholder="Digite um valor" />
-      <button className="w-full bg-blue-500 text-white py-2 rounded">Calcular</button>
+    <div class="container">
+        <h2>Calculadora de Recortes</h2>
+        <label for="originalWidth">Largura da Folha Original (cm):</label>
+        <input type="number" id="originalWidth" placeholder="Ex: 100">
+
+        <label for="originalHeight">Altura da Folha Original (cm):</label>
+        <input type="number" id="originalHeight" placeholder="Ex: 50">
+
+        <label for="cutWidth">Largura da Folha a ser cortada (cm):</label>
+        <input type="number" id="cutWidth" placeholder="Ex: 10">
+
+        <label for="cutHeight">Altura da Folha a ser cortada (cm):</label>
+        <input type="number" id="cutHeight" placeholder="Ex: 5">
+
+        <button onclick="calcularRecortes()">Calcular</button>
+        <button onclick="limparCampos()" style="background: #999; margin-top: 10px;">Limpar Campos</button>
+
+        <div class="result" id="result"></div>
     </div>
-  );
-};
 
-const Curso = () => {
-  return (
-    <div className="bg-gray-100 shadow-md rounded-2xl p-4 w-full max-w-sm">
-      <h3 className="text-lg font-semibold text-gray-800">Sobre o Curso</h3>
-      <p className="text-gray-600 text-sm mt-2">Aprenda os conceitos fundamentais de matemática aplicada.</p>
+    <div class="cta">
+        <img src="banner.png" alt="Curso de Ilustração Infantil">
+        <h3>Aprenda a Criar Ilustrações Incríveis!</h3>
+        <p>Conheça nosso curso de Ilustração Infantil e transforme sua criatividade em um negócio de sucesso!</p>
+        <a href="https://kiwify.app/gpFMsBa?afid=WfWMVCwX" target="_blank">Quero Aprender Agora!</a>
     </div>
-  );
-};
 
-const Layout = () => {
-  return (
-    <div className="flex flex-col md:flex-row md:justify-end p-6 space-y-4 md:space-y-0 md:space-x-4">
-      <div className="md:w-2/5">
-        <Calculadora />
-      </div>
-      <div className="md:w-1/4">
-        <Curso />
-      </div>
+    <div class="tutorial">
+        <h3>Como Usar a Calculadora de Recortes ✂️</h3>
+        <p>📌 <strong>Passo 1:</strong> Informe o tamanho da folha original (largura e altura).</p>
+        <p>📌 <strong>Passo 2:</strong> Informe o tamanho dos recortes desejados (largura e altura).</p>
+        <p>📊 <strong>Passo 3:</strong> Clique em "Calcular" e veja os resultados!</p>
+        <p>🔄 <strong>Passo 4:</strong> Clique em "Limpar Campos" para reiniciar.</p>
+        <p>🚀 <strong>Fácil, rápido e gratuito!</strong> 💰 100% grátis – Você pode usar quantas vezes quiser!</p>
     </div>
-  );
-};
 
-export default Layout;
+    <script>
+        function calcularRecortes() {
+            const originalWidth = document.getElementById('originalWidth').value;
+            const originalHeight = document.getElementById('originalHeight').value;
+            const cutWidth = document.getElementById('cutWidth').value;
+            const cutHeight = document.getElementById('cutHeight').value;
+
+            const numHorizontal = Math.floor(originalWidth / cutWidth);
+            const numVertical = Math.floor(originalHeight / cutHeight);
+            const total = numHorizontal * numVertical;
+
+            document.getElementById('result').innerHTML = `
+                <p>Recortes na horizontal: ${numHorizontal}</p>
+                <p>Recortes na vertical: ${numVertical}</p>
+                <p>Total de recortes possíveis: ${total}</p>
+            `;
+        }
+
+        function limparCampos() {
+            document.querySelectorAll("input").forEach(input => input.value = "");
+            document.getElementById('result').innerHTML = "";
+        }
+    </script>
+
+</body>
+</html>
