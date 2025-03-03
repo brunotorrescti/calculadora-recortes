@@ -17,27 +17,29 @@
             display: flex;
             justify-content: center;
             align-items: flex-start;
+            height: 100vh;
             padding: 20px;
-            flex-wrap: wrap;
+            flex-direction: column;
         }
-        .main-container {
+        .container-wrapper {
             display: flex;
             justify-content: center;
-            gap: 20px;
+            align-items: flex-start;
             width: 100%;
             max-width: 1200px;
+            margin: auto;
         }
         .container {
             background: #fff;
             padding: 25px;
             border-radius: 15px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            max-width: 400px;
+            max-width: 600px;
             width: 100%;
             text-align: center;
         }
         h2 {
-            font-size: 22px;
+            font-size: 24px;
             font-weight: 600;
             color: #ff3b7f;
             margin-bottom: 20px;
@@ -80,148 +82,67 @@
             font-weight: bold;
             color: #333;
         }
-        .instructions {
-            background: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-            max-width: 400px;
-            width: 100%;
-            margin: 20px auto;
-            text-align: left;
-        }
-        .instructions h3 {
-            font-size: 18px;
-            font-weight: bold;
-            color: #ff3b7f;
-            margin-bottom: 10px;
-        }
-        .instructions p {
-            font-size: 14px;
-            color: #555;
-            margin-bottom: 10px;
-        }
         .cta {
-            background: linear-gradient(to right, #ff7eb3, #ff758c);
-            padding: 20px;
+            background: #fff;
+            padding: 15px;
             text-align: center;
             border-radius: 10px;
-            color: white;
+            margin-left: 20px;
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-            max-width: 300px;
-            width: 100%;
+            max-width: 250px;
         }
         .cta img {
             max-width: 100%;
             height: auto;
             border-radius: 10px;
-            margin-bottom: 15px;
         }
         .cta h3 {
-            font-size: 20px;
+            font-size: 18px;
             font-weight: bold;
-            margin-bottom: 10px;
-        }
-        .cta p {
-            font-size: 16px;
-            margin-bottom: 15px;
+            margin-top: 10px;
+            color: #ff3b7f;
         }
         .cta a {
-            background: white;
-            color: #ff3b7f;
-            padding: 10px 20px;
+            background: #ff3b7f;
+            color: white;
+            padding: 10px 15px;
             text-decoration: none;
             font-weight: bold;
             border-radius: 5px;
             display: inline-block;
-            transition: 0.3s ease;
+            margin-top: 10px;
         }
         .cta a:hover {
-            background: #ffe6ec;
-        }
-        @media (max-width: 768px) {
-            .main-container {
-                flex-direction: column;
-                align-items: center;
-            }
-            .cta {
-                max-width: 400px;
-            }
+            background: #e91e63;
         }
     </style>
 </head>
 <body>
-
-    <div class="main-container">
-        <!-- Calculadora -->
+    <div class="container-wrapper">
         <div class="container">
             <h2>Calculadora de Recortes</h2>
             <label for="originalWidth">Largura da Folha Original (cm):</label>
             <input type="number" id="originalWidth" placeholder="Ex: 100">
-
             <label for="originalHeight">Altura da Folha Original (cm):</label>
             <input type="number" id="originalHeight" placeholder="Ex: 50">
-
             <label for="cutWidth">Largura da Folha a ser cortada (cm):</label>
             <input type="number" id="cutWidth" placeholder="Ex: 10">
-
             <label for="cutHeight">Altura da Folha a ser cortada (cm):</label>
             <input type="number" id="cutHeight" placeholder="Ex: 5">
-
             <button onclick="calcularRecortes()">Calcular</button>
             <button onclick="limparCampos()" style="background: #999; margin-top: 10px;">Limpar Campos</button>
-
             <div class="result" id="result"></div>
         </div>
-
-        <!-- CTA do Curso -->
         <div class="cta">
             <img src="banner.png" alt="Curso de Ilustração Infantil">
             <h3>Aprenda a Criar Ilustrações Incríveis!</h3>
-            <p>Conheça nosso curso de Ilustração Infantil e transforme sua criatividade em um negócio de sucesso!</p>
             <a href="https://kiwify.app/gpFMsBa?afid=WfWMVCwX" target="_blank">Quero Aprender Agora!</a>
         </div>
     </div>
-
-    <!-- Instruções -->
-    <div class="instructions">
-        <h3>Como usar a Calculadora de Recortes?</h3>
-        <p>1️⃣ **Digite** a largura e altura da folha original.</p>
-        <p>2️⃣ **Insira** o tamanho desejado para os recortes.</p>
-        <p>3️⃣ **Clique no botão "Calcular"** e veja quantos recortes são possíveis.</p>
-        <p>4️⃣ Se quiser testar novos valores, basta **clicar em "Limpar Campos"**.</p>
-        <p>✅ Esta calculadora é **100% gratuita** e foi feita para facilitar seu dia a dia!</p>
-    </div>
-
     <script>
         function calcularRecortes() {
-            const originalWidth = document.getElementById('originalWidth');
-            const originalHeight = document.getElementById('originalHeight');
-            const cutWidth = document.getElementById('cutWidth');
-            const cutHeight = document.getElementById('cutHeight');
-
-            const widthValue = parseFloat(originalWidth.value);
-            const heightValue = parseFloat(originalHeight.value);
-            const cutWidthValue = parseFloat(cutWidth.value);
-            const cutHeightValue = parseFloat(cutHeight.value);
-
-            if (isNaN(widthValue) || isNaN(heightValue) || isNaN(cutWidthValue) || isNaN(cutHeightValue) ||
-                widthValue <= 0 || heightValue <= 0 || cutWidthValue <= 0 || cutHeightValue <= 0) {
-                document.getElementById('result').innerText = 'Por favor, insira valores válidos.';
-                return;
-            }
-
-            const numHorizontal = Math.floor(widthValue / cutWidthValue);
-            const numVertical = Math.floor(heightValue / cutHeightValue);
-            const total = numHorizontal * numVertical;
-
-            document.getElementById('result').innerHTML = `
-                <p>Recortes na horizontal: ${numHorizontal}</p>
-                <p>Recortes na vertical: ${numVertical}</p>
-                <p>Total de recortes possíveis: ${total}</p>
-            `;
+            document.getElementById('result').innerText = "Aqui aparecerá o resultado!";
         }
-
         function limparCampos() {
             document.getElementById('originalWidth').value = '';
             document.getElementById('originalHeight').value = '';
@@ -230,6 +151,5 @@
             document.getElementById('result').innerText = '';
         }
     </script>
-
 </body>
 </html>
