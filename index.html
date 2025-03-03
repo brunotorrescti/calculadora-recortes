@@ -40,6 +40,12 @@
             text-align: center;
         }
 
+        .calculadora h2 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #333;
+        }
+
         .cta {
             background: #ff7eb3;
             padding: 20px;
@@ -150,6 +156,31 @@
     <p>🔹 <strong>Passo 3:</strong> Clique em "Calcular" e veja os resultados.</p>
     <p>🔹 <strong>Passo 4:</strong> Para um novo cálculo, clique em "Limpar Campos".</p>
 </div>
+
+<script>
+    function calcularRecortes() {
+        const width = parseFloat(document.getElementById('originalWidth').value);
+        const height = parseFloat(document.getElementById('originalHeight').value);
+        const cutWidth = parseFloat(document.getElementById('cutWidth').value);
+        const cutHeight = parseFloat(document.getElementById('cutHeight').value);
+
+        if (isNaN(width) || isNaN(height) || isNaN(cutWidth) || isNaN(cutHeight) || width <= 0 || height <= 0 || cutWidth <= 0 || cutHeight <= 0) {
+            document.getElementById('result').innerText = 'Por favor, insira valores válidos.';
+            return;
+        }
+
+        const numHorizontal = Math.floor(width / cutWidth);
+        const numVertical = Math.floor(height / cutHeight);
+        const total = numHorizontal * numVertical;
+
+        document.getElementById('result').innerHTML = `Recortes na horizontal: ${numHorizontal}<br>Recortes na vertical: ${numVertical}<br>Total: ${total}`;
+    }
+
+    function limparCampos() {
+        document.querySelectorAll("input").forEach(input => input.value = '');
+        document.getElementById('result').innerHTML = '';
+    }
+</script>
 
 </body>
 </html>
