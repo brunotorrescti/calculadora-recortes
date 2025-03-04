@@ -6,6 +6,7 @@
     <title>Calculadora de Recortes</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
+        /* Reset padrão para remover margens e definir a fonte */
         * {
             margin: 0;
             padding: 0;
@@ -13,6 +14,7 @@
             font-family: 'Poppins', sans-serif;
         }
 
+        /* Configuração do fundo e alinhamento centralizado do conteúdo */
         body {
             background: #ff9a9e;
             display: flex;
@@ -21,25 +23,27 @@
             padding: 20px;
         }
 
+        /* Layout principal organizando calculadora e CTA */
         .layout-container {
             display: flex;
-            justify-content: center;
+            justify-content: center; /* Mantém alinhado ao centro */
             align-items: flex-start;
             max-width: 1100px;
             width: 100%;
-            gap: 20px;
+            position: relative; /* Mantém a CTA fixa na lateral */
         }
 
+        /* Estilos da calculadora */
         .calculadora {
             background: #fff;
             padding: 30px;
             border-radius: 15px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            width: 65%;
+            width: 700px; /* Define o tamanho fixo da calculadora */
             text-align: center;
-            
         }
 
+        /* Campos de entrada e botões dentro da calculadora */
         .calculadora label {
             display: block;
             margin-top: 10px;
@@ -66,6 +70,7 @@
             font-weight: bold;
         }
 
+        /* Botão calcular com cor principal */
         .calculadora .calcular {
             background: #ff3b7f;
             color: white;
@@ -75,11 +80,13 @@
             background: #e91e63;
         }
 
+        /* Botão limpar com cor cinza */
         .calculadora .limpar {
             background: #999;
             color: white;
         }
 
+        /* Estilo do resultado */
         .result {
             margin-top: 20px;
             font-size: 18px;
@@ -87,19 +94,26 @@
             font-weight: bold;
         }
 
+        /* Estilos da CTA, fixada no canto direito */
         .cta {
-            position: absolute;
-    right: 0; /* Move a CTA para o canto direito */
-    top: 0; /* Mantém alinhada ao topo da div pai */
+            position: fixed;
+            right: 10px; /* Colada no canto direito */
+            top: 20px; /* Pequeno espaçamento do topo */
             background: #ff7eb3;
             padding: 20px;
             text-align: center;
             border-radius: 10px;
             color: white;
-            width: 20%;
-            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1); 
+            width: 300px; /* Tamanho padrão de anúncio */
+            height: 250px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
 
+        /* Estilização da imagem dentro da CTA */
         .cta img {
             max-width: 100%;
             border-radius: 10px;
@@ -107,40 +121,43 @@
         }
 
         .cta h3 {
-            font-size: 20px;
+            font-size: 18px;
             font-weight: bold;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
 
         .cta p {
-            font-size: 16px;
-            margin-bottom: 15px;
+            font-size: 14px;
+            margin-bottom: 10px;
         }
 
+        /* Botão da CTA */
         .cta a {
             background: white;
             color: #ff3b7f;
-            padding: 10px 20px;
+            padding: 8px 12px;
             text-decoration: none;
             font-weight: bold;
             border-radius: 5px;
             display: inline-block;
-            transition: 0.3s ease;
+            margin-top: 8px;
+            font-size: 14px;
         }
 
         .cta a:hover {
             background: #ffe6ec;
         }
 
+        /* Seção "Passo a Passo" abaixo da calculadora */
         .passo-passo {
             background: #fff;
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            width: 720px; /* Mesma largura da calculadora */
+            width: 700px; /* Mesmo tamanho da calculadora */
             text-align: center;
-            margin-top: 20px;
-                }
+            margin-top: 20px; /* Espaço entre calculadora e passo a passo */
+        }
 
         .passo-passo h2 {
             color: #ff3b7f;
@@ -153,19 +170,27 @@
             margin-bottom: 10px;
         }
 
-        /* Responsividade */
+        /* Responsividade para telas menores */
         @media (max-width: 900px) {
             .layout-container {
-                flex-direction: column;
+                flex-direction: column; /* Organiza os elementos em coluna */
                 align-items: center;
             }
 
-            .calculadora, .cta {
-                width: 100%;
+            .calculadora {
+                width: 90%; /* Adapta largura */
             }
 
             .passo-passo {
-                width: 100%;
+                width: 90%; /* Adapta largura */
+            }
+
+            .cta {
+                position: relative; /* Remove fixação */
+                width: 90%;
+                margin-top: 20px;
+                right: auto;
+                top: auto;
             }
         }
     </style>
@@ -192,13 +217,6 @@
 
         <div class="result" id="result"></div>
     </div>
-
-    <div class="cta">
-        <img src="CTA.png" alt="Curso de Ilustração Infantil">
-        <h3>Aprenda a Criar Ilustrações Incríveis!</h3>
-        <p>Transforme sua criatividade em um negócio de sucesso!</p>
-        <a href="https://kiwify.app/gpFMsBa?afid=WfWMVCwX" target="_blank">Quero Aprender Agora!</a>
-    </div>
 </div>
 
 <div class="passo-passo">
@@ -221,16 +239,7 @@
             return;
         }
 
-        const numHorizontal = Math.floor(width / cutWidth);
-        const numVertical = Math.floor(height / cutHeight);
-        const total = numHorizontal * numVertical;
-
-        document.getElementById('result').innerHTML = `Recortes na horizontal: ${numHorizontal}<br>Recortes na vertical: ${numVertical}<br>Total: ${total}`;
-    }
-
-    function limparCampos() {
-        document.querySelectorAll("input").forEach(input => input.value = '');
-        document.getElementById('result').innerHTML = '';
+        document.getElementById('result').innerHTML = `Recortes: ${Math.floor(width / cutWidth) * Math.floor(height / cutHeight)}`;
     }
 </script>
 
