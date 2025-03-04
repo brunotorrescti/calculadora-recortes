@@ -103,13 +103,24 @@
         max-width: 500px; /* Evita que fiquem muito grandes */
     }
 
+    @media (max-width: 900px) {
+    .layout-container {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .calculadora, .passo-passo, .cta {
+        width: 90%; /* Garante que todas as divs ocupem a largura correta */
+        max-width: 500px; /* Evita que fiquem exageradamente grandes */
+    }
+
     .cta {
-        position: static; /* Remove a sobreposição */
-        margin-top: 20px; /* Adiciona espaço entre as divs */
+        position: static; /* Impede sobreposição */
+        margin-top: 20px; /* Adiciona um espaço entre as divs */
     }
 }
-
-        .cta img {
+    .cta img {
             max-width: 100%;
             border-radius: 10px;
             margin-bottom: 10px;
