@@ -6,166 +6,131 @@
     <title>Calculadora de Recortes</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        }
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+    }
 
-        body {
-            background: #ff9a9e;
-            display: flex;
+    body {
+        background: #ff9a9e;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+    }
+
+    .layout-container {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        max-width: 1100px;
+        width: 100%;
+        gap: 40px; /* Aumenta o espaço entre calculadora e curso */
+    }
+
+    .calculadora {
+        background: #fff;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        width: 700px; /* Centraliza melhor */
+        text-align: center;
+    }
+
+    .cta {
+        background: #ff7eb3;
+        padding: 15px;
+        text-align: center;
+        border-radius: 10px;
+        color: white;
+        width: 300px; /* Largura padrão de anúncio Google Ads */
+        height: 250px; /* Altura padrão de anúncio Google Ads */
+        box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .cta img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 10px;
+    }
+
+    .cta h3 {
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 8px;
+    }
+
+    .cta p {
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
+
+    .cta a {
+        background: white;
+        color: #ff3b7f;
+        padding: 8px 12px;
+        text-decoration: none;
+        font-weight: bold;
+        border-radius: 5px;
+        display: inline-block;
+        margin-top: 8px;
+        font-size: 14px;
+    }
+
+    .cta a:hover {
+        background: #ffe6ec;
+    }
+
+    .passo-passo {
+        background: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        max-width: 850px;
+        width: 100%;
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .passo-passo h2 {
+        color: #ff3b7f;
+        margin-bottom: 15px;
+    }
+
+    .passo-passo p {
+        text-align: left;
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+
+    /* Responsividade */
+    @media (max-width: 900px) {
+        .layout-container {
             flex-direction: column;
             align-items: center;
-            padding: 20px;
-        }
-
-        .layout-container {
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            max-width: 1100px;
-            width: 100%;
-            gap: 20px;
         }
 
         .calculadora {
-            background: #fff;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            width: 65%;
-            text-align: center;
-        }
-
-        .calculadora label {
-            display: block;
-            margin-top: 10px;
-            font-weight: bold;
-        }
-
-        .calculadora input {
-            width: 100%;
-            padding: 10px;
-            margin-top: 5px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 16px;
-        }
-
-        .calculadora button {
-            width: 100%;
-            padding: 12px;
-            margin-top: 15px;
-            border: none;
-            border-radius: 5px;
-            font-size: 16px;
-            cursor: pointer;
-            font-weight: bold;
-        }
-
-        .calculadora .calcular {
-            background: #ff3b7f;
-            color: white;
-        }
-
-        .calculadora .calcular:hover {
-            background: #e91e63;
-        }
-
-        .calculadora .limpar {
-            background: #999;
-            color: white;
-        }
-
-        .result {
-            margin-top: 20px;
-            font-size: 18px;
-            color: #333;
-            font-weight: bold;
+            width: 90%;
         }
 
         .cta {
-            background: #ff7eb3;
-            padding: 20px;
-            text-align: center;
-            border-radius: 10px;
-            color: white;
-            width: 30%;
-            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .cta img {
-            max-width: 100%;
-            border-radius: 10px;
-            margin-bottom: 10px;
-        }
-
-        .cta h3 {
-            font-size: 20px;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-
-        .cta p {
-            font-size: 16px;
-            margin-bottom: 15px;
-        }
-
-        .cta a {
-            background: white;
-            color: #ff3b7f;
-            padding: 10px 20px;
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 5px;
-            display: inline-block;
-            transition: 0.3s ease;
-        }
-
-        .cta a:hover {
-            background: #ffe6ec;
+            width: 300px; /* Mantém o tamanho do anúncio */
+            height: 250px;
         }
 
         .passo-passo {
-            background: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            max-width: 850px;
             width: 100%;
-            text-align: center;
-            margin-top: 20px;
         }
+    }
+</style>
 
-        .passo-passo h2 {
-            color: #ff3b7f;
-            margin-bottom: 15px;
-        }
-
-        .passo-passo p {
-            text-align: left;
-            font-size: 16px;
-            margin-bottom: 10px;
-        }
-
-        /* Responsividade */
-        @media (max-width: 900px) {
-            .layout-container {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .calculadora, .cta {
-                width: 90%;
-            }
-
-            .passo-passo {
-                width: 100%;
-            }
-        }
-    </style>
 </head>
 <body>
 
