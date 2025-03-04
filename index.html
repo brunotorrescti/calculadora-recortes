@@ -86,22 +86,15 @@
             font-weight: bold;
         }
 
-        .cta {
-    background: #ff7eb3;
-    padding: 15px;
-    text-align: center;
-    border-radius: 10px;
-    color: white;
-    width: 300px;
-    height: 250px;
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-left: auto; /* Move a CTA para a direita */
+     .layout-container {
+    position: relative;
 }
 
+.cta {
+    position: absolute;
+    right: 0; /* Move a CTA para o canto direito */
+    top: 0; /* Mantém alinhada ao topo da div pai */
+}
         .cta img {
             max-width: 100%;
             border-radius: 10px;
