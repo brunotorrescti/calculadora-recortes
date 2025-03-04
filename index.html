@@ -91,17 +91,23 @@
         }
 
         .cta {
-            position: absolute;
-    right: 0; /* Move a CTA para o canto direito */
-    top: 0; /* Mantém alinhada ao topo da div pai */
-            background: #ff7eb3;
-            padding: 20px;
-            text-align: center;
-            border-radius: 10px;
-            color: white;
-            width: 20%;
-            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1); 
-        }
+          @media (max-width: 900px) {
+    .layout-container {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .calculadora, .passo-passo, .cta {
+        width: 90%; /* Garante que as divs ocupem quase toda a largura da tela */
+        max-width: 500px; /* Evita que fiquem muito grandes */
+    }
+
+    .cta {
+        position: static; /* Remove a sobreposição */
+        margin-top: 20px; /* Adiciona espaço entre as divs */
+    }
+}
 
         .cta img {
             max-width: 100%;
