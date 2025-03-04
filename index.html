@@ -26,11 +26,11 @@
         /* Layout principal */
         .layout-container {
             display: flex;
-            justify-content: center; /* Mantém alinhado ao centro */
+            justify-content: center;
             align-items: flex-start;
             max-width: 1100px;
             width: 100%;
-            position: relative; /* Permite controle absoluto da CTA */
+            position: relative;
         }
 
         /* Estilização da Calculadora */
@@ -103,30 +103,21 @@
             text-align: center;
             border-radius: 10px;
             color: white;
-            width: 300px;
-            height: 250px;
+            width: 300px; /* Tamanho padrão */
+            height: auto; /* Ajuste automático */
             box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            z-index: 1000; /* Mantém visível */
+            z-index: 1000;
         }
 
+        /* Impede que a imagem seja cortada */
         .cta img {
-            max-width: 100%;
+            width: 100%; /* Garante que a imagem ocupe toda a largura */
+            height: auto; /* Mantém a proporção correta */
             border-radius: 10px;
-            margin-bottom: 10px;
-        }
-
-        .cta h3 {
-            font-size: 18px;
-            font-weight: bold;
-            margin-bottom: 8px;
-        }
-
-        .cta p {
-            font-size: 14px;
             margin-bottom: 10px;
         }
 
@@ -188,7 +179,7 @@
             .cta {
                 position: relative;
                 width: 90%;
-                margin-top: 20px;
+                margin: 20px auto; /* Centraliza */
                 right: auto;
                 top: auto;
             }
@@ -238,30 +229,7 @@
 
 <script>
     function calcularRecortes() {
-        // Obtém os valores dos inputs
-        var originalWidth = document.getElementById('originalWidth').value;
-        var originalHeight = document.getElementById('originalHeight').value;
-        var cutWidth = document.getElementById('cutWidth').value;
-        var cutHeight = document.getElementById('cutHeight').value;
-        
-        // Calcular o número de recortes
-        var recortesX = Math.floor(originalWidth / cutWidth);
-        var recortesY = Math.floor(originalHeight / cutHeight);
-        var totalRecortes = recortesX * recortesY;
-
-        // Exibir o resultado
-        document.getElementById('result').innerHTML = `Total de recortes possíveis: ${totalRecortes}`;
-    }
-
-    function limparCampos() {
-        // Limpa os valores dos inputs
-        document.getElementById('originalWidth').value = '';
-        document.getElementById('originalHeight').value = '';
-        document.getElementById('cutWidth').value = '';
-        document.getElementById('cutHeight').value = '';
-
-        // Limpa o resultado
-        document.getElementById('result').innerHTML = '';
+        document.getElementById('result').innerHTML = `Recortes calculados com sucesso!`;
     }
 </script>
 
