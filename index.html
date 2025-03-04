@@ -23,11 +23,10 @@
 
     .layout-container {
         display: flex;
-        justify-content: center;
+        justify-content: space-between; /* Alinha os elementos corretamente */
         align-items: flex-start;
         max-width: 1100px;
         width: 100%;
-        gap: 40px; /* Aumenta o espaço entre calculadora e curso */
     }
 
     .calculadora {
@@ -35,7 +34,7 @@
         padding: 30px;
         border-radius: 15px;
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        width: 700px; /* Centraliza melhor */
+        width: 700px;
         text-align: center;
     }
 
@@ -45,13 +44,14 @@
         text-align: center;
         border-radius: 10px;
         color: white;
-        width: 300px; /* Largura padrão de anúncio Google Ads */
-        height: 250px; /* Altura padrão de anúncio Google Ads */
+        width: 300px;
+        height: 250px;
         box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        margin-left: auto; /* Move a CTA para o canto direito */
     }
 
     .cta img {
@@ -121,8 +121,9 @@
         }
 
         .cta {
-            width: 300px; /* Mantém o tamanho do anúncio */
+            width: 300px;
             height: 250px;
+            margin-left: 0; /* Reseta para evitar desalinhamento em telas pequenas */
         }
 
         .passo-passo {
