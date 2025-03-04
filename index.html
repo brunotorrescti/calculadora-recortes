@@ -237,10 +237,33 @@
 </div>
 
 <script>
-    function calcularRecortes() {
-        document.getElementById('result').innerHTML = `Recortes calculados com sucesso!`;
+function calcularRecortes() {
+        // Obtém os valores dos inputs
+        var originalWidth = document.getElementById('originalWidth').value;
+        var originalHeight = document.getElementById('originalHeight').value;
+        var cutWidth = document.getElementById('cutWidth').value;
+        var cutHeight = document.getElementById('cutHeight').value;
+        
+        // Calcular o número de recortes
+        var recortesX = Math.floor(originalWidth / cutWidth);
+        var recortesY = Math.floor(originalHeight / cutHeight);
+        var totalRecortes = recortesX * recortesY;
+
+        // Exibir o resultado
+        document.getElementById('result').innerHTML = `Total de recortes possíveis: ${totalRecortes}`;
     }
-</script>
+
+    function limparCampos() {
+        // Limpa os valores dos inputs
+        document.getElementById('originalWidth').value = '';
+        document.getElementById('originalHeight').value = '';
+        document.getElementById('cutWidth').value = '';
+        document.getElementById('cutHeight').value = '';
+
+        // Limpa o resultado
+        document.getElementById('result').innerHTML = '';
+    }</script>
+    
 
 </body>
 </html>
