@@ -6,7 +6,7 @@
     <title>Calculadora de Recortes</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        /* Reset padrão para remover margens e definir a fonte */
+        /* Reset padrão */
         * {
             margin: 0;
             padding: 0;
@@ -14,7 +14,7 @@
             font-family: 'Poppins', sans-serif;
         }
 
-        /* Configuração do fundo e alinhamento centralizado do conteúdo */
+        /* Configuração do fundo e centralização do layout */
         body {
             background: #ff9a9e;
             display: flex;
@@ -23,27 +23,26 @@
             padding: 20px;
         }
 
-        /* Layout principal organizando calculadora e CTA */
+        /* Layout principal */
         .layout-container {
             display: flex;
             justify-content: center; /* Mantém alinhado ao centro */
             align-items: flex-start;
             max-width: 1100px;
             width: 100%;
-            position: relative; /* Mantém a CTA fixa na lateral */
+            position: relative; /* Permite controle absoluto da CTA */
         }
 
-        /* Estilos da calculadora */
+        /* Estilização da Calculadora */
         .calculadora {
             background: #fff;
             padding: 30px;
             border-radius: 15px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            width: 700px; /* Define o tamanho fixo da calculadora */
+            width: 700px;
             text-align: center;
         }
 
-        /* Campos de entrada e botões dentro da calculadora */
         .calculadora label {
             display: block;
             margin-top: 10px;
@@ -70,7 +69,7 @@
             font-weight: bold;
         }
 
-        /* Botão calcular com cor principal */
+        /* Botão Calcular */
         .calculadora .calcular {
             background: #ff3b7f;
             color: white;
@@ -80,7 +79,7 @@
             background: #e91e63;
         }
 
-        /* Botão limpar com cor cinza */
+        /* Botão Limpar */
         .calculadora .limpar {
             background: #999;
             color: white;
@@ -94,26 +93,26 @@
             font-weight: bold;
         }
 
-        /* Estilos da CTA, fixada no canto direito */
+        /* Estilização da CTA (fixa no canto direito) */
         .cta {
             position: fixed;
-            right: 10px; /* Colada no canto direito */
-            top: 20px; /* Pequeno espaçamento do topo */
+            right: 20px; /* Mantém no canto direito */
+            top: 50px; /* Distância do topo */
             background: #ff7eb3;
             padding: 20px;
             text-align: center;
             border-radius: 10px;
             color: white;
-            width: 300px; /* Tamanho padrão de anúncio */
+            width: 300px;
             height: 250px;
             box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
+            z-index: 1000; /* Mantém visível */
         }
 
-        /* Estilização da imagem dentro da CTA */
         .cta img {
             max-width: 100%;
             border-radius: 10px;
@@ -148,7 +147,7 @@
             background: #ffe6ec;
         }
 
-        /* Seção "Passo a Passo" abaixo da calculadora */
+        /* Seção "Passo a Passo" abaixo da Calculadora */
         .passo-passo {
             background: #fff;
             padding: 20px;
@@ -156,7 +155,7 @@
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             width: 700px; /* Mesmo tamanho da calculadora */
             text-align: center;
-            margin-top: 20px; /* Espaço entre calculadora e passo a passo */
+            margin-top: 20px;
         }
 
         .passo-passo h2 {
@@ -170,23 +169,24 @@
             margin-bottom: 10px;
         }
 
-        /* Responsividade para telas menores */
+        /* Responsividade */
         @media (max-width: 900px) {
             .layout-container {
-                flex-direction: column; /* Organiza os elementos em coluna */
+                flex-direction: column;
                 align-items: center;
             }
 
             .calculadora {
-                width: 90%; /* Adapta largura */
+                width: 90%;
             }
 
             .passo-passo {
-                width: 90%; /* Adapta largura */
+                width: 90%;
             }
 
+            /* CTA em telas menores */
             .cta {
-                position: relative; /* Remove fixação */
+                position: relative;
                 width: 90%;
                 margin-top: 20px;
                 right: auto;
@@ -219,6 +219,7 @@
     </div>
 </div>
 
+<!-- Passo a Passo -->
 <div class="passo-passo">
     <h2>Como Usar a Calculadora de Recortes ✂️</h2>
     <p>🔹 <strong>Passo 1:</strong> Informe o tamanho da folha original.</p>
@@ -227,19 +228,17 @@
     <p>🔹 <strong>Passo 4:</strong> Para um novo cálculo, clique em "Limpar Campos".</p>
 </div>
 
+<!-- CTA -->
+<div class="cta">
+    <img src="CTA.png" alt="Curso de Ilustração Infantil">
+    <h3>Aprenda a Criar Ilustrações Incríveis!</h3>
+    <p>Transforme sua criatividade em um negócio de sucesso!</p>
+    <a href="https://kiwify.app/gpFMsBa?afid=WfWMVCwX" target="_blank">Quero Aprender Agora!</a>
+</div>
+
 <script>
     function calcularRecortes() {
-        const width = parseFloat(document.getElementById('originalWidth').value);
-        const height = parseFloat(document.getElementById('originalHeight').value);
-        const cutWidth = parseFloat(document.getElementById('cutWidth').value);
-        const cutHeight = parseFloat(document.getElementById('cutHeight').value);
-
-        if (isNaN(width) || isNaN(height) || isNaN(cutWidth) || isNaN(cutHeight) || width <= 0 || height <= 0 || cutWidth <= 0 || cutHeight <= 0) {
-            document.getElementById('result').innerText = 'Por favor, insira valores válidos.';
-            return;
-        }
-
-        document.getElementById('result').innerHTML = `Recortes: ${Math.floor(width / cutWidth) * Math.floor(height / cutHeight)}`;
+        document.getElementById('result').innerHTML = `Recortes calculados com sucesso!`;
     }
 </script>
 
