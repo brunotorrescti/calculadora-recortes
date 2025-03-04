@@ -23,10 +23,12 @@
 
     .layout-container {
         display: flex;
-        justify-content: space-between; /* Alinha os elementos corretamente */
+        justify-content: center;
         align-items: flex-start;
         max-width: 1100px;
         width: 100%;
+        gap: 40px;
+        visibility: visible !important; /* Garante que as divs não fiquem ocultas */
     }
 
     .calculadora {
@@ -36,6 +38,7 @@
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         width: 700px;
         text-align: center;
+        visibility: visible !important;
     }
 
     .cta {
@@ -51,40 +54,7 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        margin-left: auto; /* Move a CTA para o canto direito */
-    }
-
-    .cta img {
-        max-width: 100%;
-        height: auto;
-        border-radius: 10px;
-    }
-
-    .cta h3 {
-        font-size: 18px;
-        font-weight: bold;
-        margin-bottom: 8px;
-    }
-
-    .cta p {
-        font-size: 14px;
-        margin-bottom: 10px;
-    }
-
-    .cta a {
-        background: white;
-        color: #ff3b7f;
-        padding: 8px 12px;
-        text-decoration: none;
-        font-weight: bold;
-        border-radius: 5px;
-        display: inline-block;
-        margin-top: 8px;
-        font-size: 14px;
-    }
-
-    .cta a:hover {
-        background: #ffe6ec;
+        visibility: visible !important;
     }
 
     .passo-passo {
@@ -96,41 +66,10 @@
         width: 100%;
         text-align: center;
         margin-top: 20px;
-    }
-
-    .passo-passo h2 {
-        color: #ff3b7f;
-        margin-bottom: 15px;
-    }
-
-    .passo-passo p {
-        text-align: left;
-        font-size: 16px;
-        margin-bottom: 10px;
-    }
-
-    /* Responsividade */
-    @media (max-width: 900px) {
-        .layout-container {
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .calculadora {
-            width: 90%;
-        }
-
-        .cta {
-            width: 300px;
-            height: 250px;
-            margin-left: 0; /* Reseta para evitar desalinhamento em telas pequenas */
-        }
-
-        .passo-passo {
-            width: 100%;
-        }
+        visibility: visible !important;
     }
 </style>
+
 
 </head>
 <body>
