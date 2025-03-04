@@ -157,20 +157,19 @@
         }
 
         /* Responsividade */
-        @media (max-width: 900px) {
-            .layout-container {
-                flex-direction: column;
-                align-items: center;
-            }
+       @media (max-width: 900px) {
+    .layout-container {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
 
-            .calculadora, .cta {
-                width: 100%;
-            }
+    .calculadora, .passo-passo, .cta {
+        width: 90%; /* Garante que elas ocupem quase toda a largura da tela */
+        max-width: 500px; /* Evita que fiquem exageradamente grandes em telas médias */
+    }
+}
 
-            .passo-passo {
-                width: 100%;
-            }
-        }
     </style>
 </head>
 <body>
