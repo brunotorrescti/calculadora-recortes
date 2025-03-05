@@ -23,11 +23,11 @@
 
         .layout-container {
             display: flex;
-            justify-content: center;
             align-items: flex-start;
+            justify-content: space-between;
             max-width: 1100px;
             width: 100%;
-            position: relative;
+            padding-right: 360px; /* Garante espaço para a CTA */
         }
 
         .calculadora {
@@ -86,23 +86,24 @@
             font-weight: bold;
         }
 
+        /* Estilização da CTA */
         .cta {
-            position: fixed;
+            position: absolute;
             right: 20px;
-            top: 30px;
+            top: 50px;
             background: #ff7eb3;
             padding: 20px;
             text-align: center;
             border-radius: 10px;
             color: white;
             width: 320px;
-            min-height: 550px;
+            min-height: 600px;
             box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            z-index: 1000;
+            z-index: 10;
         }
 
         .cta img {
@@ -128,6 +129,33 @@
             background: #ffe6ec;
         }
 
+        /* Ajusta no computador */
+        @media (min-width: 1024px) {
+            .cta {
+                position: absolute;
+                right: 20px;
+                top: 30px;
+            }
+        }
+
+        /* No celular, a CTA fica abaixo da calculadora */
+        @media (max-width: 900px) {
+            .layout-container {
+                flex-direction: column;
+                align-items: center;
+                padding-right: 0;
+            }
+
+            .cta {
+                position: relative;
+                width: 90%;
+                margin: 20px auto;
+                right: auto;
+                top: auto;
+                min-height: 500px;
+            }
+        }
+
         .passo-passo {
             background: #fff;
             padding: 20px;
@@ -147,29 +175,6 @@
             text-align: left;
             font-size: 16px;
             margin-bottom: 10px;
-        }
-
-        @media (max-width: 900px) {
-            .layout-container {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .calculadora {
-                width: 90%;
-            }
-
-            .passo-passo {
-                width: 90%;
-            }
-
-            .cta {
-                position: relative;
-                width: 90%;
-                margin: 20px auto;
-                right: auto;
-                top: auto;
-            }
         }
     </style>
 </head>
@@ -218,11 +223,6 @@
         const height = parseFloat(document.getElementById('originalHeight').value);
         const cutWidth = parseFloat(document.getElementById('cutWidth').value);
         const cutHeight = parseFloat(document.getElementById('cutHeight').value);
-
-        if (isNaN(width) || isNaN(height) || isNaN(cutWidth) || isNaN(cutHeight) || width <= 0 || height <= 0 || cutWidth <= 0 || cutHeight <= 0) {
-            document.getElementById('result').innerText = 'Por favor, insira valores válidos.';
-            return;
-        }
 
         const numHorizontal = Math.floor(width / cutWidth);
         const numVertical = Math.floor(height / cutHeight);
